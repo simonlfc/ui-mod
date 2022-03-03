@@ -1,0 +1,21 @@
+#include "ui_mp/includes/menudef.h"
+#include "ui_mp/includes/macros.h"
+#include "ui_mp/includes/styles.h"
+
+menuDef
+{
+	name 				"main_text"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	fullscreen 			1
+	soundloop 			"music_mainmenu_mp"
+
+	// IW2
+	IW2_BG
+	IW2_CREATE_BUTTON( 0, "Join Game", open "pc_join_unranked" )
+	IW2_CREATE_BUTTON( 1, "Start New Server", open "createserver" )
+	IW2_CREATE_BUTTON( 2, "Multiplayer Options", open "undefined" )
+	IW2_CREATE_BUTTON( 3, "Options", open "pc_options_video" )
+	IW2_CREATE_BUTTON( 4, "Mods", open "mods_menu" )
+	IW2_CREATE_BUTTON( 5, "Quit", open "quit_popmenu" )
+}

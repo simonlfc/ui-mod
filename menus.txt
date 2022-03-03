@@ -1,0 +1,4 @@
+{
+	loadmenu { "ui_mp/main.menu" }
+	loadmenu { "ui_mp/main_text.menu" }
+}
