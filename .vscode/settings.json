@@ -1,9 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "Disabled",
-    "files.associations": {
-        "*.gsc": "gsc",
-        "*.menu": "c",
-        "styles.h": "c",
-        "macros.h": "c"
-    }
-}
