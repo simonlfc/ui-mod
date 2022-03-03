@@ -20,6 +20,7 @@
         textstyle           ITEM_TEXTSTYLE_SHADOWEDMORE \
         textalign           ITEM_ALIGN_MIDDLE_RIGHT \
         textalignx          -5 \
+        textaligny          -0.5 \
         forecolor           0.9 0.9 0.92 0.75
 
 #define IW3_CREATE_BUTTON( idx, string, action_ ) \

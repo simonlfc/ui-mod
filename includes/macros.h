@@ -16,6 +16,18 @@
 			extra			\
 		}
 
+#define CREATE_SHADER_ALT( position, texture, colour, visibility, extra ) \
+		itemDef \
+		{ \
+			style 			WINDOW_STYLE_FILLED \
+			rect 			position \
+			backcolor 		colour \
+			background		texture \
+			visible 		when ( visibility ) \
+			decoration 		\
+			extra			\
+		}
+
 #define DEBUG_STYLE_BUTTON( x, string, action_ ) \
 		itemDef \
 		{ \
@@ -28,7 +40,10 @@
 			text 			string \
 			textfont 		UI_FONT_SMALL \
 			textalign 		ITEM_ALIGN_MIDDLE_CENTER \
-			textscale 		0.225 \
+			textscale 		0.2 \
+			border 			1 \
+			bordersize		0.1 \
+			bordercolor		1 1 1 0.1 \
 			action \
 			{ \
 				close 		"self"; \
@@ -41,4 +56,5 @@
 		DEBUG_STYLE_BUTTON( 20, "Restart Menus", exec "snd_restart"; ) \
 		DEBUG_STYLE_BUTTON( 70, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open "main_text"; ) \
 		DEBUG_STYLE_BUTTON( 120, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 170, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open "main_text"; )
+		DEBUG_STYLE_BUTTON( 170, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open "main_text"; ) \
+		DEBUG_STYLE_BUTTON( 220, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open "main_text"; )
