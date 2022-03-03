@@ -3,6 +3,7 @@
     "files.associations": {
         "*.gsc": "gsc",
         "*.menu": "c",
-        "styles.h": "c"
+        "styles.h": "c",
+        "macros.h": "c"
     }
 }
