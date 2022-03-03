@@ -38,6 +38,7 @@
 
 #define STYLE_WIDGET \
 		DEBUG_STYLE_BUTTON( -30, "Refresh Style", close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 21, "Restart Menus", exec "snd_restart"; ) \
-		DEBUG_STYLE_BUTTON( 72, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 123, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open "main_text"; )
+		DEBUG_STYLE_BUTTON( 20, "Restart Menus", exec "snd_restart"; ) \
+		DEBUG_STYLE_BUTTON( 70, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open "main_text"; ) \
+		DEBUG_STYLE_BUTTON( 120, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open "main_text"; ) \
+		DEBUG_STYLE_BUTTON( 170, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open "main_text"; )
