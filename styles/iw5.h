@@ -1,6 +1,6 @@
 #define IW5_CHOICE_X_SIZE						336
 #define IW5_CHOICE_Y_SIZE						17.3
-#define IW5_CHOICE_X_START						-98
+#define IW5_CHOICE_X_START						-100
 #define IW5_CHOICE_Y_START					    45
 #define IW5_CHOICE_X_SPACING					250
 #define IW5_CHOICE_Y_COUNT						20
@@ -24,7 +24,7 @@
         forecolor           1 1 1 1
 
 #define IW5_CREATE_SEPARATOR( idx ) \
-        CREATE_SHADER_VIS( ( IW5_CHOICE_X( idx ) + 142 ) ( IW5_CHOICE_Y( idx ) - 2.5 ) 192 1 IW5_CHOICE_HORIZONTAL_ALIGN IW5_CHOICE_VERTICAL_ALIGN, "gradient_fadein", 1 1 1 0.25, IS_IW5 ) \
+        CREATE_SHADER_VIS( ( IW5_CHOICE_X( idx ) + 144 ) ( IW5_CHOICE_Y( idx ) - 2.5 ) 192 1 IW5_CHOICE_HORIZONTAL_ALIGN IW5_CHOICE_VERTICAL_ALIGN, "gradient_fadein", 1 1 1 0.25, IS_IW5 ) \
 
 #define IW5_CREATE_BUTTON( idx, string, action_ ) \
         CREATE_SHADER_EX( IW5_CHOICE_RECT( idx ), "gradient_fadein", 0 0 0 0, IS_IW5, group string ) \
@@ -56,11 +56,11 @@
 		}
 
 #define IW5_BG \
-        CREATE_SHADER_VIS( 0 0 640 480 4 4, "mw2_main_co_image", 1 1 1 1, IS_IW5 ) \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw5_bg", 1 1 1 1, IS_IW5 ) \
         CREATE_SHADER_VIS( -426.667 -36 853.333 480 2 1, "white", 0 0 0 0.4, IS_IW5 ) \
-        CREATE_SHADER_EX( -574.85 0 1708 480 0 0, "mw2_main_cloud_overlay", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 ) - ( ( float( milliseconds() % 60000 ) / 60000 ) * ( 854 ) ) ) ) \
-        CREATE_SHADER_EX( -228.78 0 -1708 -480 0 0, "mw2_main_cloud_overlay", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 + 854 ) - ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ) ) \
+        CREATE_SHADER_EX( -574.85 0 1708 480 0 0, "uim_iw5_smoke", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 ) - ( ( float( milliseconds() % 60000 ) / 60000 ) * ( 854 ) ) ) ) \
+        CREATE_SHADER_EX( -228.78 0 -1708 -480 0 0, "uim_iw5_smoke", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 + 854 ) - ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ) ) \
         CREATE_SHADER_VIS( -427 -240 854 480 2 2, "gradient", 0.6 0.65 0.6 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( 237.5 -236 13 680 1 1, "gradient", 1 1 1 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( -64 -36 301.5 480 1 1, "white", 0 0 0 0.4, IS_IW5 ) \
-        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 ) \
+        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 )

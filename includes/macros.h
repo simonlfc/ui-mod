@@ -28,6 +28,18 @@
 			extra			\
 		}
 
+#define CREATE_TEXT( pos, string, color, visibility, extras ) \
+		itemDef \
+		{ \
+			rect 			pos \
+			style 			1 \
+			forecolor 		color \
+			exp 			text ( string ) \
+			visible 		when ( visibility ) \
+			decoration \
+			extras \
+		}
+
 #define DEBUG_STYLE_BUTTON( x, string, action_ ) \
 		itemDef \
 		{ \
@@ -51,10 +63,25 @@
 			} \
 		}
 
+// Because different games use a different focusColor, these are useless (...unless?)
+#define CREATE_BUTTON( idx, string, action_ ) \
+		IW2_CREATE_BUTTON( idx, string, action_ ) \
+		IW3_CREATE_BUTTON( idx, string, action_ ) \
+		IW4_CREATE_BUTTON( idx, string, action_ ) \
+		IW5_CREATE_BUTTON( idx, string, action_ )
+
+#define CREATE_SEPARATOR( idx ) \
+		IW4_CREATE_SEPARATOR( idx ) \
+		IW5_CREATE_SEPARATOR( idx )
+
 #define STYLE_WIDGET \
-		DEBUG_STYLE_BUTTON( -30, "Refresh Style", close "self"; open "main_text"; ) \
+		DEBUG_STYLE_BUTTON( -30, "Refresh Style", close "self"; open MENU_NAME; ) \
 		DEBUG_STYLE_BUTTON( 20, "Restart Menus", exec "snd_restart"; ) \
-		DEBUG_STYLE_BUTTON( 70, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 120, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 170, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 220, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open "main_text"; )
+		DEBUG_STYLE_BUTTON( 70, "Rust Devmap", exec "devmap mp_rust"; ) \
+		DEBUG_STYLE_BUTTON( 120, "connect", close "self"; open "connect"; ) \
+		DEBUG_STYLE_BUTTON( 170, "main_text", close "self"; open "main_text"; ) \
+		DEBUG_STYLE_BUTTON( 220, "quit_popmenu", open "quit_popmenu"; ) \
+		DEBUG_STYLE_BUTTON( 270, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open MENU_NAME; ) \
+		DEBUG_STYLE_BUTTON( 320, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open MENU_NAME; ) \
+		DEBUG_STYLE_BUTTON( 370, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open MENU_NAME; ) \
+		DEBUG_STYLE_BUTTON( 420, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open MENU_NAME; )

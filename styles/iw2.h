@@ -1,7 +1,7 @@
 #define IW2_CHOICE_X_SIZE						210
 #define IW2_CHOICE_Y_SIZE						20
 #define IW2_CHOICE_X_START						385
-#define IW2_CHOICE_Y_START						170
+#define IW2_CHOICE_Y_START						140
 #define IW2_CHOICE_X_SPACING					( IW2_CHOICE_X_SIZE + 5 )
 #define IW2_CHOICE_Y_COUNT						20
 #define IW2_CHOICE_Y_SPACING					( IW2_CHOICE_Y_SIZE + 10 )
@@ -42,6 +42,6 @@
 		}
 
 #define IW2_BG \
-        CREATE_SHADER_VIS( 0 0 640 480 4 4, "mw2_main_co_image", 0 0.45 1 0.5, IS_IW2 ) \
-        CREATE_SHADER_EX( -5 -5 660 65 4 8, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 1 1 1 0.5 ) \
-        CREATE_SHADER_EX( -5 -60 660 65 4 10, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 1 1 1 0.5 )
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw2_bg", 1 1 1 1, IS_IW2 ) \
+        CREATE_SHADER_EX( -5 -5 660 65 4 8, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 0.9 0.9 0.9 1 ) \
+        CREATE_SHADER_EX( -5 -60 660 65 4 10, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 0.9 0.9 0.9 1 )

@@ -128,6 +128,7 @@
 #define ITEM_TEXTSTYLE_BLINK			1	// fast blinking
 #define ITEM_TEXTSTYLE_SHADOWED 		3	// drop shadow ( need a color for this )
 #define ITEM_TEXTSTYLE_SHADOWEDMORE 	6	// drop shadow ( need a color for this )
+#define ITEM_TEXTSTYLE_OUTLINED       	8	// outlined
 #define ITEM_TEXTSTYLE_MONOSPACE		128
 
 #define WINDOW_BORDER_NONE			0		// no border
@@ -258,6 +259,8 @@
 #define UI_FONT_BOLD			4
 #define UI_FONT_CONSOLE			5
 #define UI_FONT_OBJECTIVE		6
+
+#define UI_FONT_LARGE		    9
 
 // owner draw types
 // ideally these should be done outside of this file but

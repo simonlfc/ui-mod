@@ -2,12 +2,15 @@
 #include "ui_mp/includes/macros.h"
 #include "ui_mp/includes/styles.h"
 
+#define MENU_NAME		"main_text"
+
 menuDef
 {
-	name 				"main_text"
+	name 				MENU_NAME
 	rect 				0 0 640 480 0 0
 	onOpen
 	{
+		exec "selectStringTableEntryInDvar mp/didyouknow.csv 0 didyouknow";
 		STYLE_OPEN(
 			"main_text_iw2",
 			"main_text_iw3",
@@ -29,12 +32,28 @@ menuDef
 	IW2_BG
 	CREATE_SHADER( IW2_CHOICE_X_START 60 288 72 0 0, "logo_cod2", 1 1 1 1 )
 	CREATE_SHADER( 370 74 1 332 0 0, "white", 1 1 1 0.5 )
+	itemDef
+	{
+		rect 0 -70 640 480 0 0
+		decoration
+		style 1
+		forecolor 1 1 1 1
+		textfont UI_FONT_NORMAL
+		textalign ITEM_ALIGN_BOTTOM_LEFT
+		textscale 0.3
+		visible when ( IS_IW2 )
+		exp text ( "Game experience may change during online play." )
+	}
+
 	IW2_CREATE_BUTTON( 0, "Server Browser", open "pc_join_unranked" )
 	IW2_CREATE_BUTTON( 1, "Private Match", open "createserver" )
-	IW2_CREATE_BUTTON( 2, "Multiplayer Options", open "undefined" )
-	IW2_CREATE_BUTTON( 3, "Options", open "pc_options_video" )
-	IW2_CREATE_BUTTON( 4, "Mods", open "mods_menu" )
-	IW2_CREATE_BUTTON( 5, "Quit", open "quit_popmenu" )
+	IW2_CREATE_BUTTON( 2, "Create a Class", open "undefined" )
+	IW2_CREATE_BUTTON( 3, "Callsign", open "pc_options_video" )
+	IW2_CREATE_BUTTON( 4, "Barracks", open "pc_options_video" )
+	IW2_CREATE_BUTTON( 5, "Vault", open "mods_menu" )
+	IW2_CREATE_BUTTON( 6, "Options", open "mods_menu" )
+	IW2_CREATE_BUTTON( 7, "Friends", open "mods_menu" )
+	IW2_CREATE_BUTTON( 8, "Quit", open "quit_popmenu" )
 	STYLE_WIDGET
 }
 
@@ -53,13 +72,14 @@ menuDef
 	IW3_CREATE_BUTTON( 1, "Private Match", open "createserver" )
 	// separator
 	IW3_CREATE_BUTTON( 2, "Create a Class", open "cac_popup" )
-	IW3_CREATE_BUTTON( 3, "Rank & Challenges", open "menu_online_barracks" )
+	IW3_CREATE_BUTTON( 3, "Callsign", open "menu_online_barracks" )
+	IW3_CREATE_BUTTON( 4, "Barracks", open "menu_online_barracks" )
 	// separator
-	IW3_CREATE_BUTTON( 4, "Controls", open "pc_options_controls" )
-	IW3_CREATE_BUTTON( 5, "Options", open "pc_options_video" )
-	IW3_CREATE_BUTTON( 6, "Mods", open "mods_menu" )
+	IW3_CREATE_BUTTON( 5, "Vault", open "pc_options_controls" )
+	IW3_CREATE_BUTTON( 6, "Options", open "pc_options_video" )
+	IW3_CREATE_BUTTON( 7, "Friends", open "mods_menu" )
 	// separator
-	IW3_CREATE_BUTTON( 7, "Quit", open "quit_popmenu" )
+	IW3_CREATE_BUTTON( 8, "Quit", open "quit_popmenu" )
 	STYLE_WIDGET
 }
 
@@ -75,16 +95,17 @@ menuDef
 	IW4_BG
 	CREATE_SHADER( 304 270 288 72 0 0, "logo_cod2", 1 1 1 1 )
 	IW4_CREATE_SEPARATOR( 2 )
-	IW4_CREATE_SEPARATOR( 4 )
-	IW4_CREATE_SEPARATOR( 7 )
+	IW4_CREATE_SEPARATOR( 5 )
+	IW4_CREATE_SEPARATOR( 8 )
 	IW4_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
 	IW4_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
 	IW4_CREATE_BUTTON( 2, "CREATE A CLASS", open "cac_popup" )
-	IW4_CREATE_BUTTON( 3, "RANK & CHALLENGES", open "menu_online_barracks" )
-	IW4_CREATE_BUTTON( 4, "CONTROLS", open "pc_options_controls" )
-	IW4_CREATE_BUTTON( 5, "OPTIONS", open "pc_options_video" )
-	IW4_CREATE_BUTTON( 6, "MODS", open "mods_menu" )
-	IW4_CREATE_BUTTON( 7, "QUIT", open "quit_popmenu" )
+	IW4_CREATE_BUTTON( 3, "CALLSIGN", open "menu_online_barracks" )
+	IW4_CREATE_BUTTON( 4, "BARRACKS", open "menu_online_barracks" )
+	IW4_CREATE_BUTTON( 5, "VAULT", open "pc_options_controls" )
+	IW4_CREATE_BUTTON( 6, "OPTIONS", open "pc_options_video" )
+	IW4_CREATE_BUTTON( 7, "FRIENDS", open "mods_menu" )
+	IW4_CREATE_BUTTON( 8, "QUIT", open "quit_popmenu" )
 	STYLE_WIDGET
 }
 
@@ -100,8 +121,8 @@ menuDef
 	IW5_BG
 	IW5_CREATE_SEPARATOR( 0 )
 	IW5_CREATE_SEPARATOR( 2 )
-	IW5_CREATE_SEPARATOR( 4 )
-	IW5_CREATE_SEPARATOR( 7 )
+	IW5_CREATE_SEPARATOR( 5 )
+	IW5_CREATE_SEPARATOR( 8 )
 	itemDef
 	{
 		rect -62 13 276.667 24.233 1 1
@@ -119,10 +140,11 @@ menuDef
 	IW5_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
 	IW5_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
 	IW5_CREATE_BUTTON( 2, "CREATE A CLASS", open "cac_popup" )
-	IW5_CREATE_BUTTON( 3, "RANK & CHALLENGES", open "menu_online_barracks" )
-	IW5_CREATE_BUTTON( 4, "CONTROLS", open "pc_options_controls" )
-	IW5_CREATE_BUTTON( 5, "OPTIONS", open "pc_options_video" )
-	IW5_CREATE_BUTTON( 6, "MODS", open "mods_menu" )
-	IW5_CREATE_BUTTON( 7, "QUIT", open "quit_popmenu" )
+	IW5_CREATE_BUTTON( 3, "CALLSIGN", open "menu_online_barracks" )
+	IW5_CREATE_BUTTON( 4, "BARRACKS", open "menu_online_barracks" )
+	IW5_CREATE_BUTTON( 5, "VAULT", open "pc_options_controls" )
+	IW5_CREATE_BUTTON( 6, "OPTIONS", open "pc_options_video" )
+	IW5_CREATE_BUTTON( 7, "FRIENDS", open "mods_menu" )
+	IW5_CREATE_BUTTON( 8, "QUIT", open "quit_popmenu" )
 	STYLE_WIDGET
 }
