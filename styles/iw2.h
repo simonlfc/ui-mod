@@ -45,3 +45,8 @@
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw2_bg", 1 1 1 1, IS_IW2 ) \
         CREATE_SHADER_EX( -5 -5 660 65 4 8, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 0.9 0.9 0.9 1 ) \
         CREATE_SHADER_EX( -5 -60 660 65 4 10, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 0.9 0.9 0.9 1 )
+
+#define IW2_INGAME \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "gradient", 1 1 1 1, IS_IW2 ) \
+        CREATE_SHADER_EX( -5 -5 660 65 4 8, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 0.9 0.9 0.9 1 ) \
+        CREATE_SHADER_EX( -5 -60 660 65 4 10, "white", 0 0 0 0.85, IS_IW2, border 1; bordersize 1; bordercolor 0.9 0.9 0.9 1 )

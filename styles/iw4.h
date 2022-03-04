@@ -1,6 +1,6 @@
 #define IW4_CHOICE_X_SIZE						336
 #define IW4_CHOICE_Y_SIZE						20
-#define IW4_CHOICE_X_START						-66
+#define IW4_CHOICE_X_START						-64
 #define IW4_CHOICE_Y_START					    48
 #define IW4_CHOICE_X_SPACING					250
 #define IW4_CHOICE_Y_COUNT						20
@@ -24,10 +24,10 @@
         forecolor           1 1 1 1
 
 #define IW4_CREATE_SEPARATOR( idx ) \
-        CREATE_SHADER_VIS( ( IW4_CHOICE_X( idx ) + 42 ) IW4_CHOICE_Y( idx ) 240 1 IW4_CHOICE_HORIZONTAL_ALIGN IW4_CHOICE_VERTICAL_ALIGN, "gradient_fadein", 1 1 1 0.65, IS_IW4 ) \
+        CREATE_SHADER_VIS( ( IW4_CHOICE_X( idx ) + 40 ) IW4_CHOICE_Y( idx ) 240 1 IW4_CHOICE_HORIZONTAL_ALIGN IW4_CHOICE_VERTICAL_ALIGN, "gradient_fadein", 1 1 1 0.65, IS_IW4 ) \
 
 #define IW4_CREATE_BUTTON( idx, string, action_ ) \
-        CREATE_SHADER_EX( IW4_CHOICE_RECT( idx ), "menu_button_selection_bar", 0 0 0 0, IS_IW4, group string ) \
+        CREATE_SHADER_EX( IW4_CHOICE_RECT( idx ), "menu_button_selection_bar", 0 0 0 0, IS_IW4, group idx ) \
 		itemDef \
 		{ \
 			rect 			IW4_CHOICE_RECT( idx ) \
@@ -38,12 +38,12 @@
             IW4_TEMPLATE_TEXT_MENU \
             onFocus \
 			{ \
-                setItemColor string forecolor 0 0 0 1; \
+                setItemColor idx forecolor 0 0 0 1; \
 				play "mouse_over"; \
 			} \
             leaveFocus \
             { \
-                setItemColor string forecolor 0 0 0 0; \
+                setItemColor idx forecolor 0 0 0 0; \
             } \
 			action \
 			{ \
@@ -60,3 +60,9 @@
         CREATE_SHADER_EX( 0 0 640 480 4 4, "uim_iw4_glow", 1 1 1 0, IS_IW4, exp forecolor a ( ( ( sin( milliseconds( ) / 1500 ) + 1 ) * 0.25 ) + 0.25 ) ) \
         CREATE_SHADER_EX( 0 0 640 480 4 4, "uim_iw4_glow", 1 1 1 0, IS_IW4, exp forecolor a ( ( ( sin( milliseconds( ) / 480 ) + 1 ) * 0.25 ) + 0.25 ) ) \
         CREATE_SHADER_VIS( -64 0 280 480 1 0, "gradient_fadein_fadebottom", 1 1 1 0.1, IS_IW4 )
+
+#define IW4_INGAME \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "white", 0 0 0 0.4, IS_IW4 ) \
+        CREATE_SHADER_EX( 0 0 640 480 4 4, "uim_iw4_glow", 1 1 1 0, IS_IW4, exp forecolor a ( ( ( sin( milliseconds( ) / 1500 ) + 1 ) * 0.25 ) + 0.25 ) ) \
+        CREATE_SHADER_EX( 0 0 640 480 4 4, "uim_iw4_glow", 1 1 1 0, IS_IW4, exp forecolor a ( ( ( sin( milliseconds( ) / 480 ) + 1 ) * 0.25 ) + 0.25 ) ) \
+        CREATE_SHADER_VIS( -64 0 280 480 1 0, "gradient_fadein_fadebottom", 0 0 0 0.25, IS_IW4 )

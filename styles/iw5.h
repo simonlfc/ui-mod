@@ -64,3 +64,9 @@
         CREATE_SHADER_VIS( 237.5 -236 13 680 1 1, "gradient", 1 1 1 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( -64 -36 301.5 480 1 1, "white", 0 0 0 0.4, IS_IW5 ) \
         CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 )
+
+#define IW5_INGAME \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "white", 0 0 0 0.4, IS_IW5 ) \
+        CREATE_SHADER_VIS( 237.5 -236 13 680 1 1, "gradient", 1 1 1 0.75, IS_IW5 ) \
+        CREATE_SHADER_VIS( -64 -36 301.5 480 1 1, "white", 0 0 0 0.4, IS_IW5 ) \
+        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 )

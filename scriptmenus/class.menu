@@ -1,0 +1,193 @@
+#include "ui_mp/includes/menudef.h"
+#include "ui_mp/includes/macros.h"
+#include "ui_mp/includes/styles.h"
+
+#define MENU_NAME					"class"
+#define CHANGE_CLASS_ACTION	\
+		if ( localvarstring( "ui_team" ) == "marines" ) \
+		{ \
+			scriptmenuresponse "changeclass_marines"; \
+		} \
+		if ( localvarstring( "ui_team" ) == "opfor" ) \
+		{ \
+			scriptmenuresponse "changeclass_opfor"; \
+		}
+
+menudef
+{
+	name 				MENU_NAME
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	onOpen
+	{
+		STYLE_OPEN(
+			"class_iw2",
+			"class_iw3",
+			"class_iw4",
+			"class_iw5",
+			"class_t4"
+		)
+	}
+}
+
+
+menuDef
+{
+	name 				"class_iw2"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	focuscolor 			.98 .827 .58 1
+	blurworld			5
+	execKey "1" { play "mouse_click"; CHANGE_CLASS_ACTION }
+	execKey "2" { play "mouse_click"; scriptmenuresponse "changeteam" }
+	execKey "3" { play "mouse_click"; open "pc_options_video" }
+	execKey "4" { play "mouse_click"; open "popup_friends" }
+	execKey "5" { play "mouse_click"; open "popup_leavegame" }
+	
+	#undef IW2_CHOICE_X_START 		#define IW2_CHOICE_X_START 		80
+	#undef IW2_CHOICE_Y_START 		#define IW2_CHOICE_Y_START 		84
+	#undef IW2_CHOICE_Y_SPACING 	#define IW2_CHOICE_Y_SPACING 	24
+	IW2_INGAME
+
+	CREATE_TEXT( 48 59 0 0 0 0, "@MENU_OPTIONS", 1 1 1 1, IS_IW2, 
+			textfont 		UI_FONT_NORMAL;
+			textscale 		0.5 )
+
+	IW2_CREATE_BUTTON( 0, "1. Choose Class", play "mouse_click"; CHANGE_CLASS_ACTION )
+	IW2_CREATE_BUTTON( 1, "2. Change Team", play "mouse_click"; scriptmenuresponse "changeteam" )
+	IW2_CREATE_BUTTON( 2, "3. Options", play "mouse_click"; open "pc_options_video" )
+	IW2_CREATE_BUTTON( 3, "4. Friends", play "mouse_click"; open "popup_friends" )
+	IW2_CREATE_BUTTON( 4, "5. Leave Game", play "mouse_click"; open "popup_leavegame" )
+
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	name 				"class_iw3"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	focuscolor 			1 1 1 1
+	blurworld			7
+
+	IW3_INGAME
+
+	#undef IW3_CHOICE_X_START 			#define IW3_CHOICE_X_START				-320
+	#undef IW3_CHOICE_Y_START 			#define IW3_CHOICE_Y_START				-25
+	#undef IW3_CHOICE_HORIZONTAL_ALIGN 	#define IW3_CHOICE_HORIZONTAL_ALIGN 	HORIZONTAL_ALIGN_CENTER
+
+	CREATE_SHADER_VIS( 108 48 400 0.5 0 0, "line_horizontal", 1 1 1 0.85, IS_IW3 )
+	CREATE_SHADER_VIS( 138 49 340 10 0 0, "line_horizontal", 0.4 0.6 1 0.75, IS_IW3 )
+	CREATE_SHADER_VIS( 108 60 400 0.5 0 0, "line_horizontal", 1 1 1 0.85, IS_IW3 )
+	INGAME_FACTION_ICON( 10 58 128 128 0 0, 0.275 )
+
+	CREATE_TEXT( -400 28 800 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP, gametypename(), 1 1 1 0.85, IS_IW3,
+			textalign 		ITEM_ALIGN_CENTER;
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
+			textscale 		TEXTSIZE_TITLE;
+			autowrapped )
+
+	CREATE_TEXT( -250 48 500 60 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP, gametypedescription(), 1 1 1 0.75, IS_IW3,
+			textalign 		ITEM_ALIGN_CENTER;
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
+			textscale 		TEXTSIZE_SMALL;
+			autowrapped )
+
+	IW3_CREATE_SEPARATOR( 2 )
+	IW3_CREATE_BUTTON( 0, "Choose Class", play "mouse_click"; CHANGE_CLASS_ACTION )
+	IW3_CREATE_BUTTON( 1, "Change Team", play "mouse_click"; scriptmenuresponse "changeteam" )
+	IW3_CREATE_BUTTON( 2.5, "Options", play "mouse_click"; open "pc_options_video" )
+	IW3_CREATE_BUTTON( 3.5, "Friends", play "mouse_click"; open "popup_friends" )
+	IW3_CREATE_BUTTON( 4.5, "Leave Game", play "mouse_click"; open "popup_leavegame" )
+
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	name 				"class_iw4"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	focuscolor 			1 1 1 1
+	blurworld			7
+	#undef IW4_CHOICE_Y_START 			#define IW4_CHOICE_Y_START				28
+
+	IW4_INGAME
+	INGAME_FACTION_ICON( 10 58 128 128 1 1, 0.275 )
+	CREATE_TEXT( -60 0 272 28 1 1, "@MENU_OPTIONS_CAPS", 1 1 1 1, IS_IW4, 
+			textfont 		UI_FONT_LARGE;
+			textalign 		ITEM_ALIGN_TOP_RIGHT;
+			textscale 		0.5;
+			autowrapped )
+
+	CREATE_TEXT( -272 0 272 28 3 1, gametypename(), 1 1 1 1, IS_IW4, 
+			textfont 		UI_FONT_LARGE;
+			textalign 		ITEM_ALIGN_TOP_LEFT;
+			textscale 		0.35;
+			autowrapped )
+
+	CREATE_TEXT( -272 28 272 60 3 1, gametypedescription(), 1 1 1 0.75, IS_IW4, 
+			textfont 		UI_FONT_DEFAULT;
+			textalign 		ITEM_ALIGN_TOP_LEFT;
+			textscale 		0.375;
+			textstyle		ITEM_TEXTSTYLE_SHADOWED;
+			autowrapped )
+
+	IW4_CREATE_SEPARATOR( 2 )
+	IW4_CREATE_BUTTON( 0, "Choose Class", play "mouse_click"; CHANGE_CLASS_ACTION )
+	IW4_CREATE_BUTTON( 1, "Change Team", play "mouse_click"; scriptmenuresponse "changeteam" )
+	IW4_CREATE_BUTTON( 2, "Options", play "mouse_click"; open "pc_options_video" )
+	IW4_CREATE_BUTTON( 3, "Friends", play "mouse_click"; open "popup_friends" )
+	IW4_CREATE_BUTTON( 4, "Leave Game", play "mouse_click"; open "popup_leavegame" )
+
+	IW4_CREATE_BUTTON( 18, "@PLATFORM_BACK_CAPS", scriptmenuresponse "back"; )
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	name 				"class_iw5"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	focuscolor 			1 1 1 1
+	blurworld			7
+
+	IW5_INGAME
+	INGAME_FACTION_ICON( 92.667 170 119.967 119.967 1 1, 0.5 )
+	CREATE_TEXT( -63 13 276.667 24.233 1 1, "@MENU_OPTIONS_CAPS", 1 1 1 1, IS_IW5, 
+			textfont 		UI_FONT_LARGE;
+			textalign 		ITEM_ALIGN_BOTTOM_RIGHT;
+			textscale 		0.5;
+			autowrapped )
+
+	CREATE_TEXT( -272 0 272 28 3 1, gametypename(), 1 1 1 1, IS_IW5, 
+			textfont 		UI_FONT_LARGE;
+			textalign 		ITEM_ALIGN_TOP_LEFT;
+			textscale 		0.35;
+			autowrapped )
+
+	CREATE_TEXT( -272 28 272 60 3 1, gametypedescription(), 1 1 1 0.75, IS_IW5, 
+			textfont 		UI_FONT_DEFAULT;
+			textalign 		ITEM_ALIGN_TOP_LEFT;
+			textscale 		0.375;
+			textstyle		ITEM_TEXTSTYLE_SHADOWED;
+			autowrapped )
+
+	IW5_CREATE_SEPARATOR( 0 )
+	IW5_CREATE_BUTTON( 0, "CHOOSE CLASS", play "mouse_click"; CHANGE_CLASS_ACTION )
+	IW5_CREATE_BUTTON( 1, "CHANGE TEAM", play "mouse_click"; scriptmenuresponse "changeteam" )
+	IW5_CREATE_BUTTON( 2, "OPTIONS", play "mouse_click"; open "pc_options_video" )
+	IW5_CREATE_BUTTON( 3, "FRIENDS", play "mouse_click"; open "popup_friends" )
+	IW5_CREATE_BUTTON( 4, "LEAVE GAME", play "mouse_click"; open "popup_leavegame" )
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	name 				"class_t4"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	focuscolor 			0.95294 0.72156 0.21176 1
+	fullscreen 			1
+	STYLE_WIDGET
+}

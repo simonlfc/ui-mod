@@ -15,7 +15,8 @@ menuDef
 			"main_text_iw2",
 			"main_text_iw3",
 			"main_text_iw4",
-			"main_text_iw5"
+			"main_text_iw5",
+			"main_text_t4"
 		)
 	}
 }
@@ -32,18 +33,12 @@ menuDef
 	IW2_BG
 	CREATE_SHADER( IW2_CHOICE_X_START 60 288 72 0 0, "logo_cod2", 1 1 1 1 )
 	CREATE_SHADER( 370 74 1 332 0 0, "white", 1 1 1 0.5 )
-	itemDef
-	{
-		rect 0 -70 640 480 0 0
-		decoration
-		style 1
-		forecolor 1 1 1 1
-		textfont UI_FONT_NORMAL
-		textalign ITEM_ALIGN_BOTTOM_LEFT
-		textscale 0.3
-		visible when ( IS_IW2 )
-		exp text ( "Game experience may change during online play." )
-	}
+
+	CREATE_TEXT( 0 -70 640 480 0 0, "Game experience may change during online play.", 1 1 1 1, IS_IW2, 
+			textfont 		UI_FONT_NORMAL;
+			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
+			textscale 		0.3;
+			autowrapped )
 
 	IW2_CREATE_BUTTON( 0, "Server Browser", open "pc_join_unranked" )
 	IW2_CREATE_BUTTON( 1, "Private Match", open "createserver" )
@@ -67,19 +62,26 @@ menuDef
 	soundloop 			"music_mainmenu_mp"
 
 	IW3_BG
+	CREATE_TEXT( -15 -60 220 60 1 3, "Game experience may change during online play.", 1 1 1 1, IS_IW3, 
+			textfont 		UI_FONT_NORMAL;
+			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
+			textscale 		0.35;
+			autowrapped )
+
+	IW3_CREATE_SEPARATOR( 2 )
+	IW3_CREATE_SEPARATOR( 5.5 )
+	IW3_CREATE_SEPARATOR( 9 )
 	CREATE_SHADER( 324 56 278 68 0 0, "logo_cod2", 1 1 1 1 )
 	IW3_CREATE_BUTTON( 0, "Server Browser", open "pc_join_unranked" )
 	IW3_CREATE_BUTTON( 1, "Private Match", open "createserver" )
-	// separator
-	IW3_CREATE_BUTTON( 2, "Create a Class", open "cac_popup" )
-	IW3_CREATE_BUTTON( 3, "Callsign", open "menu_online_barracks" )
-	IW3_CREATE_BUTTON( 4, "Barracks", open "menu_online_barracks" )
-	// separator
-	IW3_CREATE_BUTTON( 5, "Vault", open "pc_options_controls" )
-	IW3_CREATE_BUTTON( 6, "Options", open "pc_options_video" )
-	IW3_CREATE_BUTTON( 7, "Friends", open "mods_menu" )
-	// separator
-	IW3_CREATE_BUTTON( 8, "Quit", open "quit_popmenu" )
+	IW3_CREATE_BUTTON( 2.5, "Create a Class", open "cac_popup" )
+	IW3_CREATE_BUTTON( 3.5, "Callsign", open "menu_online_barracks" )
+	IW3_CREATE_BUTTON( 4.5, "Barracks", open "menu_online_barracks" )
+	IW3_CREATE_BUTTON( 6, "Vault", open "pc_options_controls" )
+	IW3_CREATE_BUTTON( 7, "Options", open "pc_options_video" )
+	IW3_CREATE_BUTTON( 8, "Friends", open "mods_menu" )
+	IW3_CREATE_BUTTON( 9.5, "Quit", open "quit_popmenu" )
 	STYLE_WIDGET
 }
 
@@ -123,19 +125,12 @@ menuDef
 	IW5_CREATE_SEPARATOR( 2 )
 	IW5_CREATE_SEPARATOR( 5 )
 	IW5_CREATE_SEPARATOR( 8 )
-	itemDef
-	{
-		rect -62 13 276.667 24.233 1 1
-		decoration
-		visible 0
-		style 1
-		forecolor 1 1 1 1
-		textfont 9
-		textalign 14
-		textscale 0.5
-		visible 1
-		exp text ( "@MENU_MULTIPLAYER_CAPS" )
-	}
+
+	CREATE_TEXT( -63 13 276.667 24.233 1 1, "@MENU_MULTIPLAYER_CAPS", 1 1 1 1, IS_IW5, 
+			textfont 		UI_FONT_LARGE;
+			textalign 		ITEM_ALIGN_BOTTOM_RIGHT;
+			textscale 		0.5;
+			autowrapped )
 
 	IW5_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
 	IW5_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
@@ -146,5 +141,46 @@ menuDef
 	IW5_CREATE_BUTTON( 6, "OPTIONS", open "pc_options_video" )
 	IW5_CREATE_BUTTON( 7, "FRIENDS", open "mods_menu" )
 	IW5_CREATE_BUTTON( 8, "QUIT", open "quit_popmenu" )
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	name 				"main_text_t4"
+	rect 				0 0 640 480 0 0
+	forecolor 			1 1 1 1
+	focuscolor 			0.95294 0.72156 0.21176 1
+	fullscreen 			1
+	soundloop 			"music_mainmenu_mp"
+
+	T4_BG
+	CREATE_SHADER( -300 -160 256 64 3 3, "logo_cod2", 1 1 1 1 )
+
+	CREATE_TEXT( T4_CHOICE_X_START -40 640 480 0 0, "Online Interactions Not Rated by the ESRB.", 1 1 1 1, IS_T4, 
+			textfont 		UI_FONT_NORMAL;
+			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
+			textscale 		0.3;
+			autowrapped )
+
+	CREATE_TEXT( -10 2 276.667 24.233 1 1, "@MENU_MULTIPLAYER_CAPS", 1 1 1 1, IS_T4, 
+			textfont 		UI_FONT_LARGE;
+			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
+			textscale 		0.5;
+			autowrapped )
+
+	T4_CREATE_SEPARATOR( 2 )
+	T4_CREATE_SEPARATOR( 5.5 )
+	T4_CREATE_SEPARATOR( 9 )
+
+	T4_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
+	T4_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
+	T4_CREATE_BUTTON( 2.5, "CREATE A CLASS", open "cac_popup" )
+	T4_CREATE_BUTTON( 3.5, "CALLSIGN", open "menu_online_barracks" )
+	T4_CREATE_BUTTON( 4.5, "BARRACKS", open "menu_online_barracks" )
+	T4_CREATE_BUTTON( 6, "VAULT", open "pc_options_controls" )
+	T4_CREATE_BUTTON( 7, "OPTIONS", open "pc_options_video" )
+	T4_CREATE_BUTTON( 8, "FRIENDS", open "mods_menu" )
+	T4_CREATE_BUTTON( 9.5, "QUIT", open "quit_popmenu" )
 	STYLE_WIDGET
 }
