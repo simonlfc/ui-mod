@@ -163,7 +163,7 @@ menuDef
 			autowrapped )
 
 	CREATE_TEXT( -10 2 276.667 24.233 1 1, "@MENU_MULTIPLAYER_CAPS", 1 1 1 1, IS_T4, 
-			textfont 		UI_FONT_LARGE;
+			textfont 		UI_FONT_BOLD;
 			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
 			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
 			textscale 		0.5;

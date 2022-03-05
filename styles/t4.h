@@ -60,3 +60,10 @@
         CREATE_SHADER_EX( -107 0 1708 480 4 4, "uim_t4_bg_fogscroll_thin", 1 1 1 1, IS_T4, exp rect X ( ( -961 ) - ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ) ) \
         CREATE_SHADER_VIS( -107 0 854 66 0 0, "white", 0 0 0 1, IS_T4 ) \
         CREATE_SHADER_VIS( -107 420 854 70 0 0, "white", 0 0 0 1, IS_T4 )
+
+#define T4_INGAME \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "white", 0 0 0 0.65, IS_T4 ) \
+        CREATE_SHADER_VIS( -107 0 854 66 0 0, "white", 0 0 0 1, IS_T4 ) \
+        CREATE_SHADER_VIS( -107 66 854 1 0 0, "line_horizontal", 1 1 1 0.75, IS_T4 ) \
+        CREATE_SHADER_VIS( -107 420 854 70 0 0, "white", 0 0 0 1, IS_T4 ) \
+        CREATE_SHADER_VIS( -107 420 854 1 0 0, "line_horizontal", 1 1 1 0.75, IS_T4 )
