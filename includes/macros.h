@@ -8,7 +8,7 @@
 		itemDef \
 		{ \
 			style 			WINDOW_STYLE_SHADER \
-			rect 			position \
+			rect 			position; \
 			forecolor 		colour \
 			exp 			material ( texture ) \
 			visible 		when ( visibility ) \
@@ -20,7 +20,7 @@
 		itemDef \
 		{ \
 			style 			WINDOW_STYLE_FILLED \
-			rect 			position \
+			rect 			position; \
 			backcolor 		colour \
 			background		texture \
 			visible 		when ( visibility ) \
@@ -28,10 +28,10 @@
 			extra			\
 		}
 
-#define CREATE_TEXT( pos, string, color, visibility, extras ) \
+#define CREATE_TEXT( position, string, color, visibility, extras ) \
 		itemDef \
 		{ \
-			rect 			pos \
+			rect 			position; \
 			style 			1 \
 			forecolor 		color \
 			exp 			text ( string ) \
@@ -43,7 +43,7 @@
 #define DEBUG_STYLE_BUTTON( x, string, action_ ) \
 		itemDef \
 		{ \
-			rect 			x 0 50 16 1 1 \
+			rect 			x 0 50 16 1 1; \
 			origin			-57 -30 \
 			style 			1 \
 			visible 		when ( DEBUG ) \
@@ -82,8 +82,7 @@
 		DEBUG_STYLE_BUTTON( 250, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open MENU_NAME; ) \
 		DEBUG_STYLE_BUTTON( 300, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open MENU_NAME; ) \
 		DEBUG_STYLE_BUTTON( 350, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open MENU_NAME; ) \
-		DEBUG_STYLE_BUTTON( 400, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open MENU_NAME; ) \
-		DEBUG_STYLE_BUTTON( 450, "Set to T4", setDvar ui_menustyle "t4"; close "self"; open MENU_NAME; )
+		DEBUG_STYLE_BUTTON( 400, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open MENU_NAME; )
 
 #define INGAME_FACTION_ICON( pos, alpha ) \
 		CREATE_SHADER_VIS( pos, dvarstring( "g_TeamIcon_Allies" ), 1 1 1 alpha, localvarstring( "ui_team" ) == "marines" ) \

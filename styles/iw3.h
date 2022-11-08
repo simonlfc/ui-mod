@@ -27,8 +27,11 @@
         CREATE_SHADER_VIS( IW3_CHOICE_X( idx ) ( IW3_CHOICE_Y( idx ) + 1 ) IW3_CHOICE_X_SIZE 8 IW3_CHOICE_HORIZONTAL_ALIGN IW3_CHOICE_VERTICAL_ALIGN, "gradient_fadein", 0.9 0.9 1 0.07, IS_IW3 ) \
 
 #define IW3_CREATE_BUTTON( idx, string, action_ ) \
-        CREATE_SHADER_EX( IW3_CHOICE_RECT( idx ), "gradient_fadein", 0.9 0.9 1 0.07, IS_IW3, group string ) \
-        CREATE_SHADER_EX( ( IW3_CHOICE_X( idx ) + IW3_CHOICE_X_SIZE ) IW3_CHOICE_Y( idx ) 5 IW3_CHOICE_Y_SIZE IW3_CHOICE_HORIZONTAL_ALIGN IW3_CHOICE_VERTICAL_ALIGN, "button_highlight_end", 0.9 0.9 1 0.07, IS_IW3, group string ) \
+        IW3_CREATE_BUTTON_VIS( idx, string, action_, 1 )
+
+#define IW3_CREATE_BUTTON_VIS( idx, string, action_, visibility ) \
+        CREATE_SHADER_EX( IW3_CHOICE_RECT( idx ), "gradient_fadein", 0.9 0.9 1 0.07, visibility && IS_IW3, group string ) \
+        CREATE_SHADER_EX( ( IW3_CHOICE_X( idx ) + IW3_CHOICE_X_SIZE ) IW3_CHOICE_Y( idx ) 5 IW3_CHOICE_Y_SIZE IW3_CHOICE_HORIZONTAL_ALIGN IW3_CHOICE_VERTICAL_ALIGN, "button_highlight_end", 0.9 0.9 1 0.07, visibility && IS_IW3, group string ) \
 		itemDef \
 		{ \
 			rect 			IW3_CHOICE_RECT( idx ) \
@@ -62,6 +65,19 @@
         CREATE_SHADER_EX( -107 0 1708 480 4 4, "uim_iw3_bg_fogscroll_thin", 1 1 1 1, IS_IW3, exp rect X ( ( -961 ) - ( ( float( milliseconds() % THINFOG_SCROLL_TIME ) / THINFOG_SCROLL_TIME ) * ( 854 ) ) ) ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front", 1 1 1 1, IS_IW3 ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front2", 1 1 1 1, IS_IW3 )
+
+#define IW3_BG_NAV( string ) \
+        CREATE_SHADER_VIS( -120 -32 378 64, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_SHADER_VIS( 258 -32 16 -64, "button_highlight_end", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_SHADER_VIS( 56 448 528 40, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_SHADER_VIS( 584 448 16 64, "button_highlight_end", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_SHADER_VIS( 40 448 -16 64, "button_highlight_end", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_SHADER_VIS( -120 464 160 32, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_SHADER_VIS( 600 464 160 32, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
+        CREATE_TEXT( 12 4 0 0, string, 1 0.8 0.4 1, IS_IW3, textfont		UI_FONT_NORMAL \
+			                                                textscale		TEXTSIZE_TITLE \
+			                                                textstyle		ITEM_TEXTSTYLE_SHADOWED \
+			                                                textalign		ITEM_ALIGN_TOP_LEFT )
 
 #define IW3_INGAME \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "white", 0 0 0 0.75, IS_IW3 ) \

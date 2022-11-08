@@ -182,47 +182,5 @@ menuDef
 			textscale 		0.375;
 			autowrapped )
 
-		// T4
-			itemDef
-			{
-				name 			"loadbar"
-				rect 			-174 68 258 2 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_CENTER
-				style 			6
-				forecolor 		0 0 0 0.5
-				exp				material ( "line_horizontal" )
-				visible 		when ( IS_T4 )
-				decoration
-			}
-
-			CREATE_SHADER_VIS( -174 67 260 4 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_CENTER, "line_horizontal", 0 0 0 0.5, IS_T4 )
-
-			CREATE_SHADER_VIS( -174 335 258 98 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP, "line_horizontal", 0.05 0.05 0.05 1, IS_T4 )
-			CREATE_TEXT( -155 355 220 100 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP, dvarString( "didyouknow" ), 1 1 1 1, IS_T4, 
-				textfont 		UI_FONT_DEFAULT;
-				textalign 		ITEM_ALIGN_LEFT;
-				textscale 		TEXTSIZE_SMALL;
-				autowrapped )
-
-			CREATE_TEXT( 0 70 640 480 0 0, gametypename(), 1 1 1 1, IS_T4, 
-				textfont 		UI_FONT_OBJECTIVE;
-				textalign 		ITEM_ALIGN_TOP_CENTER;
-				textstyle 		ITEM_TEXTSTYLE_SHADOWEDMORE;
-				textscale 		0.5;
-				glowcolor 		0.2 0.6 0.2 0.15 )
-
-			CREATE_TEXT( 0 100 640 480 0 0, getmapname(), 1 1 1 1, IS_T4, 
-				textfont 		UI_FONT_OBJECTIVE;
-				textalign 		ITEM_ALIGN_TOP_CENTER;
-				textstyle 		ITEM_TEXTSTYLE_SHADOWEDMORE;
-				textscale 		0.5;
-				glowcolor 		0.2 0.6 0.2 0.15 )
-
-			CREATE_TEXT( 0 130 640 480 0 0, connectioninfo(), 1 1 1 1, IS_T4, 
-				textfont 		UI_FONT_OBJECTIVE;
-				textalign 		ITEM_ALIGN_TOP_CENTER;
-				textstyle 		ITEM_TEXTSTYLE_SHADOWEDMORE;
-				textscale 		0.5 )
-
-
 	STYLE_WIDGET
 }

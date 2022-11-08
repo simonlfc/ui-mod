@@ -24,8 +24,7 @@ menudef
 			"class_iw2",
 			"class_iw3",
 			"class_iw4",
-			"class_iw5",
-			"class_t4"
+			"class_iw5"
 		)
 	}
 }
@@ -179,47 +178,5 @@ menuDef
 	IW5_CREATE_BUTTON( 2, "OPTIONS", play "mouse_click"; open "pc_options_video" )
 	IW5_CREATE_BUTTON( 3, "FRIENDS", play "mouse_click"; open "popup_friends" )
 	IW5_CREATE_BUTTON( 4, "LEAVE GAME", play "mouse_click"; open "popup_leavegame" )
-	STYLE_WIDGET
-}
-
-menuDef
-{
-	name 				"class_t4"
-	rect 				0 0 640 480 0 0
-	forecolor 			1 1 1 1
-	focuscolor 			0.95294 0.72156 0.21176 1
-	blurworld			7
-
-	#undef T4_CHOICE_Y_START 			#define T4_CHOICE_Y_START				180
-
-	T4_INGAME
-	INGAME_FACTION_ICON( -1 -32 58 58 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP, 1 )
-	CREATE_TEXT( -10 2 276.667 24.233 1 1, getmapname(), 1 1 1 1, IS_T4, 
-			textfont 		UI_FONT_BOLD;
-			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
-			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
-			textscale 		0.5;
-			autowrapped )
-
-	CREATE_TEXT( -10 30 276.667 24.233 1 1, gametypename(), 1 1 1 1, IS_T4, 
-			textfont 		UI_FONT_BOLD;
-			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
-			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
-			textscale 		0.5;
-			autowrapped )
-
-	CREATE_TEXT( -10 50 276.667 24.233 1 1, gametypedescription(), 1 1 1 1, IS_T4, 
-			textfont 		UI_FONT_DEFAULT;
-			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
-			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
-			textscale 		0.35;
-			autowrapped )
-
-	T4_CREATE_BUTTON( 0, "Choose Class", play "mouse_click"; CHANGE_CLASS_ACTION )
-	T4_CREATE_BUTTON( 1, "Change Team", play "mouse_click"; scriptmenuresponse "changeteam" )
-	T4_CREATE_BUTTON( 2, "Options", play "mouse_click"; open "pc_options_video" )
-	T4_CREATE_BUTTON( 3, "Friends", play "mouse_click"; open "popup_friends" )
-	T4_CREATE_BUTTON( 4, "Leave Game", play "mouse_click"; open "popup_leavegame" )
-
 	STYLE_WIDGET
 }

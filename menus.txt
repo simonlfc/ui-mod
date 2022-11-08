@@ -1,4 +1,5 @@
 {
 	loadmenu { "ui_mp/main.menu" }
 	loadmenu { "ui_mp/main_text.menu" }
+	loadmenu { "ui_mp/mods_menu.menu" }
 }
