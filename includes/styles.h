@@ -47,7 +47,7 @@
 		fullscreen 			0 \
 		blurworld 			7 
 
-#define ADD_STYLED_POPUP( style, height, width ) \
+#define ADD_STYLED_POPUP( style, width, height) \
 		name 				style \
 		rect 				( - width / 2 ) ( - height / 2 ) width height 2 2; \
 		forecolor 			1 1 1 1 \
