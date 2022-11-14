@@ -13,91 +13,6 @@ menuDef
 	}
 }
 
-menuDef
-{
-	name 				MENU_NAME"_iw2"
-	rect 				0 0 640 480 0 0
-	forecolor 			1 1 1 1
-	focuscolor 			.98 .827 .58 1
-	fullscreen 			1
-	soundloop 			"music_mainmenu_mp"
-
-	IW2_BG
-	CREATE_SHADER( IW2_CHOICE_X_START 60 288 72 0 0, "logo_cod2", 1 1 1 1 )
-	CREATE_SHADER( 370 74 1 332 0 0, "white", 1 1 1 0.5 )
-
-	CREATE_TEXT( 0 -70 640 480 0 0, "Game experience may change during online play.", 1 1 1 1, IS_IW2, 
-			textfont 		UI_FONT_NORMAL;
-			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
-			textscale 		0.3;
-			autowrapped )
-
-	IW2_CREATE_BUTTON( 0, "Server Browser", open "pc_join_unranked" )
-	IW2_CREATE_BUTTON( 1, "Private Match", open "createserver" )
-	IW2_CREATE_BUTTON( 2, "Create a Class", open "undefined" )
-	IW2_CREATE_BUTTON( 3, "Callsign & Killstreaks", open "pc_options_video" )
-	IW2_CREATE_BUTTON( 4, "Barracks", open "pc_options_video" )
-	IW2_CREATE_BUTTON( 5, "Theater", open "mods_menu" )
-	IW2_CREATE_BUTTON( 6, "Options", open "mods_menu" )
-	IW2_CREATE_BUTTON( 7, "Mods", close "mods_menu"; open "main_text" )
-	IW2_CREATE_BUTTON( 8, "Quit", open "quit_popmenu" )
-
-	#define IW2_MODS_RECT 0 75 358 300
-	CREATE_SHADER( IW2_MODS_RECT, "white", 0 0 0 0.7; border 1; bordercolor 0.5 0.5 0.5 0.5; bordersize 1 )
-	CREATE_TEXT( IW2_MODS_RECT, "@MENU_MODS", 0.9 0.9 0.9 1, 1, textscale 0.3; textalign ITEM_ALIGN_TOP_CENTER; textfont UI_FONT_NORMAL; textstyle ITEM_TEXTSTYLE_SHADOWEDMORE; textaligny 2 )
-
-	itemDef 
-	{
-		rect 				IW2_MODS_RECT
-		origin 				3 32
-		type 				ITEM_TYPE_LISTBOX
-		style 				WINDOW_STYLE_FILLED
-		elementwidth 		120
-		elementheight 		20
-		elementtype 		LISTBOX_TEXT
-		feeder 				FEEDER_MODS
-		textscale 			0.25
-		textalign 			1
-		textaligny 			-8
-		border 				1
-		bordercolor 		0.5 0.5 0.5 0.5
-		bordersize 			1
-		forecolor 			1 1 1 1
-		backcolor 			0.05 0.05 0.5 0.15
-		outlinecolor 		0.25 0.45 0.15 0.20
-		visible 			1
-		exp rect W ( 351 )
-		exp rect H ( 220 )
-		doubleClick 
-		{ 
-			play "mouse_click"; 
-			uiScript "RunMod";
-		}
-	}
-
-	itemDef 
-	{
-		rect 				IW2_MODS_RECT
-		origin 				0 260
-		forecolor 			0.9 0.9 0.95 1
-		backcolor 			0.1747 0.1903 0.2335 0
-		text 				"@MENU_LAUNCH"
-		textalign 			ITEM_ALIGN_MIDDLE_CENTER
-		textstyle 			ITEM_TEXTSTYLE_SHADOWED
-		textscale 			0.3
-		visible 			1
-		exp rect H ( 20 )
-		mouseEnter
-		{ 
-			play "mouse_over"; 
-		}
-	
-		action { play "mouse_click"; uiScript RunMod }		
-	}
-
-	STYLE_WIDGET
-}
-
 #undef IW3_CHOICE_X_SIZE			#define IW3_CHOICE_X_SIZE					336
 #undef IW3_CHOICE_X_START			#define IW3_CHOICE_X_START					-170
 #undef IW3_CHOICE_Y_START			#define IW3_CHOICE_Y_START					83
@@ -125,7 +40,6 @@ menuDef
 		elementtype			LISTBOX_TEXT
 		feeder				FEEDER_MODS
 		textalignx			6
-		textaligny			0
 		forecolor 			1 1 1 0.9
 		backcolor 			0 0 0 0
 		border				1
@@ -155,19 +69,6 @@ menuDef
 	soundloop 			"music_mainmenu_mp"
 
 	IW4_BG
-	CREATE_SHADER( 304 270 288 72 0 0, "logo_cod2", 1 1 1 1 )
-	IW4_CREATE_SEPARATOR( 2 )
-	IW4_CREATE_SEPARATOR( 5 )
-	IW4_CREATE_SEPARATOR( 8 )
-	IW4_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
-	IW4_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
-	IW4_CREATE_BUTTON( 2, "CREATE A CLASS", open "cac_popup" )
-	IW4_CREATE_BUTTON( 3, "CALLSIGN & KILLSTREAKS", open "menu_online_barracks" )
-	IW4_CREATE_BUTTON( 4, "BARRACKS", open "menu_online_barracks" )
-	IW4_CREATE_BUTTON( 5, "THEATER", open "pc_options_controls" )
-	IW4_CREATE_BUTTON( 6, "OPTIONS", open "pc_options_video" )
-	IW4_CREATE_BUTTON( 7, "MODS", open "mods_menu" )
-	IW4_CREATE_BUTTON( 8, "QUIT", open "quit_popmenu" )
 	STYLE_WIDGET
 }
 
@@ -181,25 +82,5 @@ menuDef
 	soundloop 			"music_mainmenu_mp"
 
 	IW5_BG
-	IW5_CREATE_SEPARATOR( 0 )
-	IW5_CREATE_SEPARATOR( 2 )
-	IW5_CREATE_SEPARATOR( 5 )
-	IW5_CREATE_SEPARATOR( 8 )
-
-	CREATE_TEXT( -63 13 276.667 24.233 1 1, "@MENU_MULTIPLAYER_CAPS", 1 1 1 1, IS_IW5, 
-			textfont 		UI_FONT_LARGE;
-			textalign 		ITEM_ALIGN_BOTTOM_RIGHT;
-			textscale 		0.5;
-			autowrapped )
-
-	IW5_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
-	IW5_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
-	IW5_CREATE_BUTTON( 2, "CREATE A CLASS", open "cac_popup" )
-	IW5_CREATE_BUTTON( 3, "CALLSIGN & KILLSTREAKS", open "menu_online_barracks" )
-	IW5_CREATE_BUTTON( 4, "BARRACKS", open "menu_online_barracks" )
-	IW5_CREATE_BUTTON( 5, "THEATER", open "pc_options_controls" )
-	IW5_CREATE_BUTTON( 6, "OPTIONS", open "pc_options_video" )
-	IW5_CREATE_BUTTON( 7, "MODS", open "mods_menu" )
-	IW5_CREATE_BUTTON( 8, "QUIT", open "quit_popmenu" )
 	STYLE_WIDGET
 }

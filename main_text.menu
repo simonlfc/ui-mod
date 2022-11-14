@@ -15,37 +15,6 @@ menuDef
 
 menuDef
 {
-	name 				MENU_NAME"_iw2"
-	rect 				0 0 640 480 0 0
-	forecolor 			1 1 1 1
-	focuscolor 			.98 .827 .58 1
-	fullscreen 			1
-	soundloop 			"music_mainmenu_mp"
-
-	IW2_BG
-	CREATE_SHADER( IW2_CHOICE_X_START 60 288 72 0 0, "logo_cod2", 1 1 1 1 )
-	CREATE_SHADER( 370 74 1 332 0 0, "white", 1 1 1 0.5 )
-
-	CREATE_TEXT( 0 -70 640 480 0 0, "Game experience may change during online play.", 1 1 1 1, IS_IW2, 
-			textfont 		UI_FONT_NORMAL;
-			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
-			textscale 		0.3;
-			autowrapped )
-
-	IW2_CREATE_BUTTON( 0, "Server Browser", open "pc_join_unranked" )
-	IW2_CREATE_BUTTON( 1, "Private Match", open "createserver" )
-	IW2_CREATE_BUTTON( 2, "Create a Class", open "undefined" )
-	IW2_CREATE_BUTTON( 3, "Callsign & Killstreaks", open "pc_options_video" )
-	IW2_CREATE_BUTTON( 4, "Barracks", open "pc_options_video" )
-	IW2_CREATE_BUTTON( 5, "Theater", open "mods_menu" )
-	IW2_CREATE_BUTTON( 6, "Options", open "mods_menu" )
-	IW2_CREATE_BUTTON( 7, "Mods", open "mods_menu" )
-	IW2_CREATE_BUTTON( 8, "Quit", open "quit_popmenu" )
-	STYLE_WIDGET
-}
-
-menuDef
-{
 	name 				MENU_NAME"_iw3"
 	rect 				0 0 640 480 0 0
 	forecolor 			1 1 1 1

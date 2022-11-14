@@ -40,16 +40,16 @@
 			extras \
 		}
 
-#define DEBUG_STYLE_BUTTON( x, string, action_ ) \
+#define DEBUG_STYLE_BUTTON( idx, string, action_ ) \
 		itemDef \
 		{ \
-			rect 			x 0 50 16 1 1; \
+			rect 			( 0 + ( 50 * idx ) ) 0 50 15 1 1; \
 			origin			-57 -30 \
-			style 			1 \
+			style 			WINDOW_STYLE_FILLED \
 			visible 		when ( DEBUG ) \
 			forecolor 		1 1 1 1 \
 			backcolor		0.8 0.8 1 0.1 \
-			type 			1 \
+			type 			ITEM_TYPE_BUTTON \
 			text 			string \
 			textfont 		UI_FONT_SMALL \
 			textalign 		ITEM_ALIGN_MIDDLE_CENTER \
@@ -75,14 +75,13 @@
 
 #define STYLE_WIDGET \
 		DEBUG_STYLE_BUTTON( 0, "Restart Menus", if ( dvarBool( "cl_ingame" ) ) { exec "map_restart"; } else { exec "snd_restart"; } ) \
-		DEBUG_STYLE_BUTTON( 50, "Rust Devmap", exec "devmap mp_rust"; ) \
-		DEBUG_STYLE_BUTTON( 100, "connect", close "self"; open "connect"; ) \
-		DEBUG_STYLE_BUTTON( 150, "main_text", close "self"; open "main_text"; ) \
-		DEBUG_STYLE_BUTTON( 200, "quit_popmenu", open "quit_popmenu"; ) \
-		DEBUG_STYLE_BUTTON( 250, "Set to IW2", setDvar ui_menustyle "iw2"; close "self"; open MENU_NAME; ) \
-		DEBUG_STYLE_BUTTON( 300, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open MENU_NAME; ) \
-		DEBUG_STYLE_BUTTON( 350, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open MENU_NAME; ) \
-		DEBUG_STYLE_BUTTON( 400, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open MENU_NAME; )
+		DEBUG_STYLE_BUTTON( 1, "Rust Devmap", exec "devmap mp_rust"; ) \
+		DEBUG_STYLE_BUTTON( 2, "connect", close "self"; open "connect"; ) \
+		DEBUG_STYLE_BUTTON( 3, "main_text", close "self"; open "main_text"; ) \
+		DEBUG_STYLE_BUTTON( 4, "quit_popmenu", open "quit_popmenu"; ) \
+		DEBUG_STYLE_BUTTON( 5, "Set to IW3", setDvar ui_menustyle "iw3"; close "self"; open MENU_NAME; ) \
+		DEBUG_STYLE_BUTTON( 6, "Set to IW4", setDvar ui_menustyle "iw4"; close "self"; open MENU_NAME; ) \
+		DEBUG_STYLE_BUTTON( 7, "Set to IW5", setDvar ui_menustyle "iw5"; close "self"; open MENU_NAME; )
 
 #define INGAME_FACTION_ICON( pos, alpha ) \
 		CREATE_SHADER_VIS( pos, dvarstring( "g_TeamIcon_Allies" ), 1 1 1 alpha, localvarstring( "ui_team" ) == "marines" ) \
