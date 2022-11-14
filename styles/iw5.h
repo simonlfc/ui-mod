@@ -110,11 +110,11 @@
         CREATE_SHADER_VIS( 0 24 IW5_POPUP_WIDTH 2 0 0, "white", 0 0 0 1, IS_IW5 ) \
         CREATE_SHADER_VIS( 0 IW5_CHOICE_Y_START IW5_POPUP_WIDTH ( IW5_CHOICE_Y_SPACING * ITEM_COUNT ) 0 0, "white", 0.2118 0.2314 0.22 1, IS_IW5 ) \
         CREATE_TEXT( 0 0 IW5_POPUP_WIDTH 24 0 0, title, 1 1 1 1, IS_IW5,    textfont        9 \
-			                                                                textscale		0.375 \
+			                                                                textscale		TEXTSIZE_SMALL \
 			                                                                textalign		ITEM_ALIGN_MIDDLE_LEFT \
                                                                             textalignx      9 ) \
-        CREATE_TEXT( 0 24 IW5_POPUP_WIDTH IW5_POPUP_HEIGHT 0 0, desc, 1 1 1 1, IS_IW5,    textfont        UI_FONT_DEFAULT \
-			                                                                textscale		0.375 \
-			                                                                textalign		ITEM_ALIGN_TOP_LEFT \
-                                                                            textalignx      9 \
-                                                                            textaligny      3 )
+        CREATE_TEXT( 0 24 IW5_POPUP_WIDTH IW5_POPUP_HEIGHT 0 0, desc, 1 1 1 1, IS_IW5,      textfont        UI_FONT_DEFAULT \
+			                                                                                textscale		TEXTSIZE_SMALL \
+			                                                                                textalign		ITEM_ALIGN_TOP_LEFT \
+                                                                                            textalignx      9 \
+                                                                                            textaligny      3 )
