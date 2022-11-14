@@ -107,6 +107,16 @@
         CREATE_SHADER_VIS( 0 0 IW4_POPUP_WIDTH IW4_POPUP_HEIGHT 2 2, "mockup_popup_bg_stencilfill", 1 1 1 1, IS_IW4 ) \
         CREATE_SHADER_VIS( 0 0 -1708 -480 2 2, "mw2_popup_bg_fogstencil", 1 1 1 0.75; exp rect x ( ( - 854 ) + ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ), IS_IW4 ) \
         CREATE_SHADER_VIS( 0 0 -1708 -480 2 2, "mw2_popup_bg_fogscroll", 0.85 0.85 0.85 1; exp rect x ( ( - 854 ) + ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ), IS_IW4 ) \
+        \ // shadow
+        CREATE_SHADER_VIS( -64 0 64 IW4_POPUP_HEIGHT 2 2, "drop_shadow_l", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( IW4_POPUP_WIDTH 0 64 IW4_POPUP_HEIGHT 2 2, "drop_shadow_r", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( -64 -64 64 64 2 2, "drop_shadow_tl", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( IW4_POPUP_WIDTH -64 64 64 2 2, "drop_shadow_tr", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( 0 -64 IW4_POPUP_WIDTH 64 2 2, "drop_shadow_t", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( -64 IW4_POPUP_HEIGHT 64 64 2 2, "drop_shadow_bl", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( IW4_POPUP_WIDTH IW4_POPUP_HEIGHT 64 64 2 2, "drop_shadow_br", 0 0 0 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( 0 IW4_POPUP_HEIGHT IW4_POPUP_WIDTH 64 2 2, "drop_shadow_b", 0 0 0 1, IS_IW4 ) \
+        \ // end shadow
         CREATE_TEXT( 0 0 IW4_POPUP_WIDTH IW4_POPUP_HEIGHT 0 0, title, 1 1 1 1, IS_IW4,  textfont        9 \
 			                                                                            textscale		TEXTSIZE_SMALL \
 			                                                                            textalign		ITEM_ALIGN_TOP_CENTER \
