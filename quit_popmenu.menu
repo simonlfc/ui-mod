@@ -1,0 +1,43 @@
+#include "ui_mp/includes/menudef.h"
+#include "ui_mp/includes/macros.h"
+#include "ui_mp/includes/styles.h"
+
+#define MENU_NAME		"quit_popmenu"
+#define ITEM_COUNT		2
+
+menuDef
+{
+	ADD_BASE_MENU
+}
+
+#undef IW3_CHOICE_X_SIZE			#define IW3_CHOICE_X_SIZE					290
+#undef IW3_CHOICE_X_START			#define IW3_CHOICE_X_START					( POPUP_WIDTH - IW3_CHOICE_X_SIZE - 9 )
+#undef IW3_CHOICE_Y_START			#define IW3_CHOICE_Y_START					( POPUP_HEIGHT - ( IW3_CHOICE_Y_SPACING * ITEM_COUNT ) - 2 )
+#undef IW3_CHOICE_HORIZONTAL_ALIGN	#define IW3_CHOICE_HORIZONTAL_ALIGN			HORIZONTAL_ALIGN_CENTER
+#undef IW3_CHOICE_Y_SIZE			#define IW3_CHOICE_Y_SIZE					18
+#undef IW3_TEXTSIZE					#define IW3_TEXTSIZE						0.375
+#undef IW3_CHOICE_X_OFFSET			#define IW3_CHOICE_X_OFFSET					-2
+
+menuDef
+{
+	ADD_STYLED_POPUP( iw3, "@MENU_ARE_YOU_SURE_QUIT", "desc" )
+	IW3_CREATE_BUTTON( 0, "@MENU_YES", uiScript "quit"; )
+	IW3_CREATE_BUTTON( 1, "@MENU_NO", MENU_BACK_ACTION; )
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	ADD_STYLED_POPUP( iw4, "@MENU_ARE_YOU_SURE_QUIT", "desc" )
+	IW4_CREATE_BUTTON( 0, "@MENU_YES", uiScript "quit"; )
+	IW4_CREATE_BUTTON( 1, "@MENU_NO", MENU_BACK_ACTION; )
+	STYLE_WIDGET
+}
+
+menuDef
+{
+	ADD_STYLED_POPUP( iw5, "@MENU_ARE_YOU_SURE_QUIT", "desc" )
+	IW5_CREATE_BUTTON( 0, "@MENU_YES", uiScript "quit"; )
+	IW5_CREATE_BUTTON( 1, "@MENU_NO", MENU_BACK_ACTION; )
+	STYLE_WIDGET
+}

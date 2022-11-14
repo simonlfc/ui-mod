@@ -6,6 +6,10 @@
 #define IS_IW4  dvarString( "ui_menustyle" ) == "iw4"
 #define IS_IW5  dvarString( "ui_menustyle" ) == "iw5"
 
+#define iw3 	MENU_NAME"_iw3"
+#define iw4 	MENU_NAME"_iw4"
+#define iw5 	MENU_NAME"_iw5"
+
 #define DEBUG 	1
 
 #define STYLE_OPEN \
@@ -26,11 +30,6 @@
 			STYLE_OPEN; \
 		}
 
-#define iw3 MENU_NAME"_iw3"
-#define iw4 MENU_NAME"_iw4"
-#define iw5 MENU_NAME"_iw5"
-
-
 #define ADD_STYLED_MENU( style ) \
 		name 				style \
 		rect 				0 0 640 480 0 0; \
@@ -47,3 +46,25 @@
 		ADD_STYLED_MENU( style ) \
 		fullscreen 			0 \
 		blurworld 			7 
+
+#ifndef POPUP_WIDTH
+#define POPUP_WIDTH 0
+#endif
+
+#ifndef POPUP_HEIGHT
+#define POPUP_HEIGHT 0
+#endif
+
+#define ADD_STYLED_POPUP( style, title, desc ) \
+		name 				style \
+		rect 				( - POPUP_WIDTH / 2 ) ( - POPUP_HEIGHT / 2 ) POPUP_WIDTH POPUP_HEIGHT 2 2; \
+		forecolor 			1 1 1 1 \
+		focuscolor 			1 1 1 1 \
+		popup \
+		outofboundsclick \
+		soundloop 			"music_mainmenu_mp" \
+		onEsc \
+		{ \
+			MENU_BACK_ACTION; \
+		} \
+		POPUP_STYLE( title, desc )
