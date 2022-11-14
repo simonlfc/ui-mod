@@ -30,8 +30,8 @@
         IW3_CREATE_BUTTON_VIS( idx, string, action_, 1 )
 
 #define IW3_CREATE_BUTTON_VIS( idx, string, action_, visibility ) \
-        CREATE_SHADER_EX( IW3_CHOICE_RECT( idx ), "gradient_fadein", 0.9 0.9 1 0.07, visibility && IS_IW3, group string ) \
-        CREATE_SHADER_EX( ( IW3_CHOICE_X( idx ) + IW3_CHOICE_X_SIZE ) IW3_CHOICE_Y( idx ) 5 IW3_CHOICE_Y_SIZE IW3_CHOICE_HORIZONTAL_ALIGN IW3_CHOICE_VERTICAL_ALIGN, "button_highlight_end", 0.9 0.9 1 0.07, visibility && IS_IW3, group string ) \
+        CREATE_SHADER_EX( IW3_CHOICE_RECT( idx ), "gradient_fadein", 0.9 0.9 1 0.07, visibility && IS_IW3, group choice_button_##idx ) \
+        CREATE_SHADER_EX( ( IW3_CHOICE_X( idx ) + IW3_CHOICE_X_SIZE ) IW3_CHOICE_Y( idx ) 5 IW3_CHOICE_Y_SIZE IW3_CHOICE_HORIZONTAL_ALIGN IW3_CHOICE_VERTICAL_ALIGN, "button_highlight_end", 0.9 0.9 1 0.07, visibility && IS_IW3, group choice_button_##idx ) \
 		itemDef \
 		{ \
 			rect 			IW3_CHOICE_RECT( idx ) \
@@ -42,12 +42,12 @@
             IW3_TEMPLATE_TEXT_MENU \
             onFocus \
 			{ \
-                setItemColor string forecolor 0.9 0.9 1 0.3; \
+                setItemColor choice_button_##idx forecolor 0.9 0.9 1 0.3; \
 				play "mouse_over"; \
 			} \
             leaveFocus \
             { \
-                setItemColor string forecolor 0.9 0.9 1 0.07; \
+                setItemColor choice_button_##idx forecolor 0.9 0.9 1 0.07; \
             } \
 			action \
 			{ \
@@ -74,10 +74,32 @@
         CREATE_SHADER_VIS( 40 448 -16 64, "button_highlight_end", 0.9 0.9 0.95 0.175, IS_IW3 ) \
         CREATE_SHADER_VIS( -120 464 160 32, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
         CREATE_SHADER_VIS( 600 464 160 32, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
-        CREATE_TEXT( 12 4 0 0, string, 1 0.8 0.4 1, IS_IW3, textfont		UI_FONT_NORMAL \
+        CREATE_TEXT( 12 3.5 0 0, string, 1 0.8 0.4 1, IS_IW3, textfont		UI_FONT_NORMAL \
 			                                                textscale		TEXTSIZE_TITLE \
 			                                                textstyle		ITEM_TEXTSTYLE_SHADOWED \
-			                                                textalign		ITEM_ALIGN_TOP_LEFT )
+			                                                textalign		ITEM_ALIGN_TOP_LEFT ) \
+        itemDef \
+	    { \
+	    	text			"@MENU_BACK" \
+	    	type			ITEM_TYPE_BUTTON \
+	    	style			WINDOW_STYLE_FILLED \
+	    	textstyle		ITEM_TEXTSTYLE_SHADOWED \
+	    	rect			-250 10 40 20 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM \
+	    	textfont		UI_FONT_NORMAL \
+	    	textalign		ITEM_ALIGN_LEFT \
+	    	textscale		TEXTSIZE_SMALL \
+	    	textaligny		18 \
+	    	visible			1 \
+            onFocus \
+            { \
+                play "mouse_over"; \
+            } \
+	    	action \
+	    	{ \
+	    		play "mouse_click"; \
+                MENU_BACK_ACTION; \
+	    	} \
+	    }
 
 #define IW3_INGAME \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "white", 0 0 0 0.75, IS_IW3 ) \

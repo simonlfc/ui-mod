@@ -27,8 +27,8 @@
         CREATE_SHADER_VIS( ( IW5_CHOICE_X( idx ) + 144 ) ( IW5_CHOICE_Y( idx ) - 2.5 ) 192 1 IW5_CHOICE_HORIZONTAL_ALIGN IW5_CHOICE_VERTICAL_ALIGN, "gradient_fadein", 1 1 1 0.25, IS_IW5 ) \
 
 #define IW5_CREATE_BUTTON( idx, string, action_ ) \
-        CREATE_SHADER_EX( IW5_CHOICE_RECT( idx ), "gradient_fadein", 0 0 0 0, IS_IW5, group string ) \
-        CREATE_SHADER_ALT( IW5_CHOICE_X( idx ) ( IW5_CHOICE_Y( idx ) + IW5_CHOICE_Y_SIZE ) IW5_CHOICE_X_SIZE 3.6667 IW5_CHOICE_HORIZONTAL_ALIGN IW5_CHOICE_VERTICAL_ALIGN, "gradient_top", 0 0 0 0, IS_IW5, group string ) \
+        CREATE_SHADER_EX( IW5_CHOICE_RECT( idx ), "gradient_fadein", 0 0 0 0, IS_IW5, group choice_button_##idx ) \
+        CREATE_SHADER_ALT( IW5_CHOICE_X( idx ) ( IW5_CHOICE_Y( idx ) + IW5_CHOICE_Y_SIZE ) IW5_CHOICE_X_SIZE 3.6667 IW5_CHOICE_HORIZONTAL_ALIGN IW5_CHOICE_VERTICAL_ALIGN, "gradient_top", 0 0 0 0, IS_IW5, group choice_button_##idx ) \
 		itemDef \
 		{ \
 			rect 			IW5_CHOICE_RECT( idx ) \
@@ -39,14 +39,14 @@
             IW5_TEMPLATE_TEXT_MENU \
             onFocus \
 			{ \
-                setItemColor string forecolor 0.488 0.520 0.465 1; \
-                setItemColor string backcolor 1 1 1 1; \
+                setItemColor choice_button_##idx forecolor 0.488 0.520 0.465 1; \
+                setItemColor choice_button_##idx backcolor 1 1 1 1; \
 				play "mouse_over"; \
 			} \
             leaveFocus \
             { \
-                setItemColor string forecolor 0 0 0 0; \
-                setItemColor string backcolor 0 0 0 0; \
+                setItemColor choice_button_##idx forecolor 0 0 0 0; \
+                setItemColor choice_button_##idx backcolor 0 0 0 0; \
             } \
 			action \
 			{ \
@@ -55,7 +55,7 @@
             } \
 		}
 
-#define IW5_BG \
+#define IW5_BG( string ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw5_bg", 1 1 1 1, IS_IW5 ) \
         CREATE_SHADER_VIS( -426.667 -36 853.333 480 2 1, "white", 0 0 0 0.4, IS_IW5 ) \
         CREATE_SHADER_EX( -574.85 0 1708 480 0 0, "uim_iw5_smoke", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 ) - ( ( float( milliseconds() % 60000 ) / 60000 ) * ( 854 ) ) ) ) \
@@ -63,10 +63,20 @@
         CREATE_SHADER_VIS( -427 -240 854 480 2 2, "gradient", 0.6 0.65 0.6 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( 237.5 -236 13 680 1 1, "gradient", 1 1 1 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( -64 -36 301.5 480 1 1, "white", 0 0 0 0.4, IS_IW5 ) \
-        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 )
+        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 ) \
+	    CREATE_TEXT( -63 13 276.667 24.233 1 1, string, 1 1 1 1, IS_IW5,  \
+	    		textfont 		UI_FONT_LARGE; \
+	    		textalign 		ITEM_ALIGN_BOTTOM_RIGHT; \
+	    		textscale 		0.5; \
+	    		autowrapped )
 
-#define IW5_INGAME \
+#define IW5_INGAME( string ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "white", 0 0 0 0.4, IS_IW5 ) \
         CREATE_SHADER_VIS( 237.5 -236 13 680 1 1, "gradient", 1 1 1 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( -64 -36 301.5 480 1 1, "white", 0 0 0 0.4, IS_IW5 ) \
-        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 )
+        CREATE_SHADER_VIS( 236 -36 1 480 1 1, "white", 1 1 1 0.1, IS_IW5 ) \
+	    CREATE_TEXT( -63 13 276.667 24.233 1 1, "@MENU_OPTIONS_CAPS", 1 1 1 1, IS_IW5,  \
+	    		textfont 		UI_FONT_LARGE; \
+	    		textalign 		ITEM_ALIGN_BOTTOM_RIGHT; \
+	    		textscale 		0.5; \
+	    		autowrapped )

@@ -20,12 +20,7 @@ menuDef
 
 menuDef
 {
-	name 				MENU_NAME"_iw3"
-	rect 				0 0 640 480 0 0
-	forecolor 			1 1 1 1
-	focuscolor 			1 1 1 1
-	fullscreen 			1
-	soundloop 			"music_mainmenu_mp"
+	ADD_STYLED_MENU( iw3 )
 
 	IW3_BG_NAV( "@MENU_MODS" )
 	itemDef 
@@ -61,26 +56,16 @@ menuDef
 
 menuDef
 {
-	name 				MENU_NAME"_iw4"
-	rect 				0 0 640 480 0 0
-	forecolor 			1 1 1 1
-	focuscolor 			1 1 1 1
-	fullscreen 			1
-	soundloop 			"music_mainmenu_mp"
+	ADD_STYLED_MENU( iw4 )
 
-	IW4_BG
+	IW4_BG( "@MENU_MODS" )
 	STYLE_WIDGET
 }
 
 menuDef
 {
-	name 				MENU_NAME"_iw5"
-	rect 				0 0 640 480 0 0
-	forecolor 			1 1 1 1
-	focuscolor 			1 1 1 1
-	fullscreen 			1
-	soundloop 			"music_mainmenu_mp"
+	ADD_STYLED_MENU( iw5 )
 
-	IW5_BG
+	IW5_BG( "@MENU_MODS" )
 	STYLE_WIDGET
 }

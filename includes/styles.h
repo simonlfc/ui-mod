@@ -25,3 +25,25 @@
 			} \
 			STYLE_OPEN; \
 		}
+
+#define iw3 MENU_NAME"_iw3"
+#define iw4 MENU_NAME"_iw4"
+#define iw5 MENU_NAME"_iw5"
+
+
+#define ADD_STYLED_MENU( style ) \
+		name 				style \
+		rect 				0 0 640 480 0 0; \
+		forecolor 			1 1 1 1 \
+		focuscolor 			1 1 1 1 \
+		fullscreen 			1 \
+		soundloop 			"music_mainmenu_mp" \
+		onEsc \
+		{ \
+			MENU_BACK_ACTION; \
+		}
+
+#define ADD_STYLED_INGAME_MENU( style ) \
+		ADD_STYLED_MENU( style ) \
+		fullscreen 			0 \
+		blurworld 			7 

@@ -88,3 +88,9 @@
 		CREATE_SHADER_VIS( pos, dvarstring( "g_TeamIcon_Axis" ), 1 1 1 alpha, localvarstring( "ui_team" ) == "opfor" ) \
 		CREATE_SHADER_VIS( pos, dvarstring( "g_TeamIcon_Allies" ), 1 1 1 alpha, team( "name" ) == "TEAM_FREE" && localvarstring( "ui_team" ) == "marines" ) \
 		CREATE_SHADER_VIS( pos, dvarstring( "g_TeamIcon_Axis" ), 1 1 1 alpha, team( "name" ) == "TEAM_FREE" && localvarstring( "ui_team" ) == "opfor" )
+
+#ifndef MENU_BACK_ACTION
+#define MENU_BACK_ACTION \
+		close "self"; \
+		open "main_text";
+#endif
