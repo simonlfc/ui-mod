@@ -47,24 +47,19 @@
 		fullscreen 			0 \
 		blurworld 			7 
 
-#ifndef POPUP_WIDTH
-#define POPUP_WIDTH 0
-#endif
-
-#ifndef POPUP_HEIGHT
-#define POPUP_HEIGHT 0
-#endif
-
-#define ADD_STYLED_POPUP( style, title, desc ) \
+#define ADD_STYLED_POPUP( style, height, width ) \
 		name 				style \
-		rect 				( - POPUP_WIDTH / 2 ) ( - POPUP_HEIGHT / 2 ) POPUP_WIDTH POPUP_HEIGHT 2 2; \
+		rect 				( - width / 2 ) ( - height / 2 ) width height 2 2; \
 		forecolor 			1 1 1 1 \
 		focuscolor 			1 1 1 1 \
 		popup \
 		outofboundsclick \
 		soundloop 			"music_mainmenu_mp" \
+		onOpen \
+		{ \
+			focusFirst; \
+		} \
 		onEsc \
 		{ \
 			MENU_BACK_ACTION; \
-		} \
-		POPUP_STYLE( title, desc )
+		}

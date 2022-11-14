@@ -17,6 +17,16 @@
 #define IW3_CHOICE_X_OFFSET                     -5
 #define IW3_TEXTCOLOUR                          0.9 0.9 0.92 0.75
 
+#ifdef POPUP && POPUP == 1
+#undef IW3_CHOICE_X_SIZE			#define IW3_CHOICE_X_SIZE					290
+#undef IW3_CHOICE_X_START			#define IW3_CHOICE_X_START					( IW3_POPUP_WIDTH - IW3_CHOICE_X_SIZE - 9 )
+#undef IW3_CHOICE_Y_START			#define IW3_CHOICE_Y_START					( IW3_POPUP_HEIGHT - ( IW3_CHOICE_Y_SPACING * ITEM_COUNT ) - 2 )
+#undef IW3_CHOICE_HORIZONTAL_ALIGN	#define IW3_CHOICE_HORIZONTAL_ALIGN			HORIZONTAL_ALIGN_CENTER
+#undef IW3_CHOICE_Y_SIZE			#define IW3_CHOICE_Y_SIZE					18
+#undef IW3_TEXTSIZE					#define IW3_TEXTSIZE						0.375
+#undef IW3_CHOICE_X_OFFSET			#define IW3_CHOICE_X_OFFSET					-2
+#endif
+
 #define IW3_TEMPLATE_TEXT_MENU \
         textfont            UI_FONT_DEFAULT \
         textscale           IW3_TEXTSIZE \
@@ -109,14 +119,14 @@
         CREATE_SHADER_VIS( 0 0 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0, "gradient_top", 1 1 1 1, IS_IW3 ) \
         CREATE_SHADER_VIS( 0 405 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0, "gradient_bottom", 1 1 1 1, IS_IW3 )
 
-#define POPUP_WIDTH                 ( 330 )
-#define POPUP_HEIGHT                ( 50 + ( IW3_CHOICE_Y_SPACING * ITEM_COUNT ) )
+#define IW3_POPUP_WIDTH                 ( 330 )
+#define IW3_POPUP_HEIGHT                ( 50 + ( IW3_CHOICE_Y_SPACING * ITEM_COUNT ) )
 
-#define POPUP_STYLE( title, desc ) \
+#define IW3_POPUP( title, desc ) \
         CREATE_SHADER_VIS( -1000 -1000 2000 2000 2 2, "white", 0 0 0 0.5, IS_IW3 ) \
-        CREATE_SHADER_VIS( 0 0 POPUP_WIDTH POPUP_HEIGHT 0 0, "white", 0.2 0.2 0.22 1; border 1; bordersize 2; bordercolor 0.29 0.29 0.3 1, IS_IW3 ) \
-        CREATE_TEXT( 0 0 POPUP_WIDTH POPUP_HEIGHT 0 0, title, IW3_TEXTCOLOUR, IS_IW3,   textfont		UI_FONT_NORMAL \
-			                                                                            textscale		0.4583 \
-			                                                                            textstyle		ITEM_TEXTSTYLE_SHADOWEDMORE \
-			                                                                            textalign		ITEM_ALIGN_TOP_CENTER \
-                                                                                        textaligny      4 )
+        CREATE_SHADER_VIS( 0 0 IW3_POPUP_WIDTH IW3_POPUP_HEIGHT 0 0, "white", 0.2 0.2 0.22 1; border 1; bordersize 2; bordercolor 0.29 0.29 0.3 1, IS_IW3 ) \
+        CREATE_TEXT( 0 0 IW3_POPUP_WIDTH IW3_POPUP_HEIGHT 0 0, title, IW3_TEXTCOLOUR, IS_IW3,   textfont		UI_FONT_NORMAL \
+			                                                                                    textscale		0.4583 \
+			                                                                                    textstyle		ITEM_TEXTSTYLE_SHADOWEDMORE \
+			                                                                                    textalign		ITEM_ALIGN_TOP_CENTER \
+                                                                                                textaligny      4 )

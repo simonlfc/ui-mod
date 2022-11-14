@@ -14,6 +14,16 @@
 #define IW4_CHOICE_ORIGIN( idx )				IW4_CHOICE_X( idx ) IW4_CHOICE_Y( idx )
 #define IW4_CHOICE_RECT( idx )					IW4_CHOICE_ORIGIN( idx ) IW4_CHOICE_X_SIZE IW4_CHOICE_Y_SIZE IW4_CHOICE_HORIZONTAL_ALIGN IW4_CHOICE_VERTICAL_ALIGN
 
+#ifdef POPUP && POPUP == 1
+#undef IW4_CHOICE_X_SIZE			#define IW4_CHOICE_X_SIZE					290
+#undef IW4_CHOICE_X_START			#define IW4_CHOICE_X_START					( IW4_POPUP_WIDTH - IW4_CHOICE_X_SIZE - 9 )
+#undef IW4_CHOICE_Y_START			#define IW4_CHOICE_Y_START					( IW4_POPUP_HEIGHT - ( IW4_CHOICE_Y_SPACING * ITEM_COUNT ) - 2 )
+#undef IW4_CHOICE_HORIZONTAL_ALIGN	#define IW4_CHOICE_HORIZONTAL_ALIGN			HORIZONTAL_ALIGN_CENTER
+#undef IW4_CHOICE_Y_SIZE			#define IW4_CHOICE_Y_SIZE					18
+#undef IW4_TEXTSIZE					#define IW4_TEXTSIZE						0.375
+#undef IW4_CHOICE_X_OFFSET			#define IW4_CHOICE_X_OFFSET					-2
+#endif
+
 #define IW4_TEMPLATE_TEXT_MENU \
         textfont            UI_FONT_DEFAULT \
         textscale           TEXTSIZE_SMALL \
@@ -76,3 +86,15 @@
                 textalign 		ITEM_ALIGN_TOP_RIGHT; \
                 textscale 		0.5; \
                 autowrapped )
+
+#define IW4_POPUP_WIDTH                 ( 330 )
+#define IW4_POPUP_HEIGHT                ( 50 + ( IW4_CHOICE_Y_SPACING * ITEM_COUNT ) )
+
+#define IW4_POPUP( title, desc ) \
+        CREATE_SHADER_VIS( -1000 -1000 2000 2000 2 2, "white", 0 0 0 0.5, IS_IW4 ) \
+        CREATE_SHADER_VIS( 0 0 IW4_POPUP_WIDTH IW4_POPUP_HEIGHT 0 0, "white", 0.2 0.2 0.22 1; border 1; bordersize 2; bordercolor 0.29 0.29 0.3 1, IS_IW4 ) \
+        CREATE_TEXT( 0 0 IW4_POPUP_WIDTH IW4_POPUP_HEIGHT 0 0, title, 1 1 1 1, IS_IW4,  textfont UI_FONT_NORMAL \
+			                                                                            textscale		0.4583 \
+			                                                                            textstyle		ITEM_TEXTSTYLE_SHADOWEDMORE \
+			                                                                            textalign		ITEM_ALIGN_TOP_CENTER \
+                                                                                        textaligny      4 )
