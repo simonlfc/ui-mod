@@ -76,7 +76,7 @@
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw5_bg", 1 1 1 1, IS_IW5 ) \
         CREATE_SHADER_VIS( -426.667 -36 853.333 480 2 1, "white", 0 0 0 0.4, IS_IW5 ) \
         CREATE_SHADER_EX( -574.85 0 1708 480 0 0, "uim_iw5_smoke", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 ) - ( ( float( milliseconds() % 60000 ) / 60000 ) * ( 854 ) ) ) ) \
-        CREATE_SHADER_EX( -228.78 0 -1708 -480 0 0, "uim_iw5_smoke", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 + 854 ) - ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ) ) \
+        CREATE_SHADER_EX( -228.78 0 -1708 -480 0 0, "uim_iw5_smoke", 0.35 0.35 0.35 1, IS_IW5, exp rect X ( ( -107 + 854 ) + ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ) ) \
         CREATE_SHADER_VIS( -427 -240 854 480 2 2, "gradient", 0.6 0.65 0.6 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( 237.5 -236 13 680 1 1, "gradient", 1 1 1 0.75, IS_IW5 ) \
         CREATE_SHADER_VIS( -64 -36 301.5 480 1 1, "white", 0 0 0 0.4, IS_IW5 ) \

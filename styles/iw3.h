@@ -75,7 +75,7 @@
 #define IW3_BG \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_back", 1 1 1 1, IS_IW3 ) \
         CREATE_SHADER_EX( -107 0 1708 480 4 4, "uim_iw3_bg_fogscroll", 1 1 1 1, IS_IW3, exp rect X ( ( -107 ) - ( ( float( milliseconds() % FOG_SCROLL_TIME ) / FOG_SCROLL_TIME ) * ( 854 ) ) ) ) \
-        CREATE_SHADER_EX( -107 0 1708 480 4 4, "uim_iw3_bg_fogscroll_thin", 1 1 1 1, IS_IW3, exp rect X ( ( -961 ) - ( ( float( milliseconds() % THINFOG_SCROLL_TIME ) / THINFOG_SCROLL_TIME ) * ( 854 ) ) ) ) \
+        CREATE_SHADER_EX( -107 0 1708 480 4 4, "uim_iw3_bg_fogscroll_thin", 1 1 1 1, IS_IW3, exp rect X ( ( -961 ) + ( ( float( milliseconds() % THINFOG_SCROLL_TIME ) / THINFOG_SCROLL_TIME ) * ( 854 ) ) ) ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front", 1 1 1 1, IS_IW3 ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front2", 1 1 1 1, IS_IW3 )
 
