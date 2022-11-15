@@ -74,7 +74,7 @@
 		}
 
 #define STYLE_WIDGET \
-		DEBUG_STYLE_BUTTON( 0, "RELOAD", if ( dvarBool( "cl_ingame" ) ) { exec "map_restart"; } else { exec "snd_restart"; } ) \
+		DEBUG_STYLE_BUTTON( 0, "RELOAD", if ( dvarBool( "cl_ingame" ) ) { exec "map_restart"; } else { exec "xstopparty;snd_restart"; } ) \
 		DEBUG_STYLE_BUTTON( 1, "IW3", setDvar ui_menustyle "iw3"; close "self"; open MENU_NAME; ) \
 		DEBUG_STYLE_BUTTON( 2, "IW4", setDvar ui_menustyle "iw4"; close "self"; open MENU_NAME; ) \
 		DEBUG_STYLE_BUTTON( 3, "IW5", setDvar ui_menustyle "iw5"; close "self"; open MENU_NAME; )

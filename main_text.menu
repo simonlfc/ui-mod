@@ -13,13 +13,32 @@ menuDef
 	}
 }
 
+#define CREATE_GAME_ACTION \
+		exec							"xrequirelivesignin"; \
+		setDvar							"systemlink" 0; \
+		setDvar							"splitscreen" 0; \
+		setDvar							"onlinegame" 1; \
+		exec							"exec default_xboxlive.cfg"; \
+		setDvar							"party_maxplayers" 18; \
+		setDvar							"xblive_privateserver" 0; \
+		setDvar							"xblive_rankedmatch" 0; \
+		exec							"xstartprivateparty"; \
+		setDvar							"ui_mptype" 0; \
+		exec							"xcheckezpatch"; \
+		exec							"exec default_xboxlive.cfg" \
+		setDvar							"xblive_rankedmatch" 0; \
+		exec							"ui_enumeratesaved"; \
+		setDvar							"xblive_privateserver" 1; \
+		exec							"xstartprivatematch"; \
+		open							"createserver";
+
 menuDef
 {
 	ADD_STYLED_MENU( iw3 )
 
 	IW3_BG
 	CREATE_TEXT( -15 -60 220 60 1 3, "Game experience may change during online play.", 1 1 1 1, IS_IW3, 
-			textfont 		UI_FONT_NORMAL;
+			textfont 		UI_FONT_DEFAULT;
 			textalign 		ITEM_ALIGN_BOTTOM_LEFT;
 			textstyle 		ITEM_TEXTSTYLE_SHADOWED;
 			textscale 		0.35;
@@ -30,7 +49,7 @@ menuDef
 	IW3_CREATE_SEPARATOR( 9 )
 	CREATE_SHADER( 324 56 278 68 0 0, "logo_cod2", 1 1 1 1 )
 	IW3_CREATE_BUTTON( 0, "Server Browser", open "pc_join_unranked" )
-	IW3_CREATE_BUTTON( 1, "Private Match", open "createserver" )
+	IW3_CREATE_BUTTON( 1, "Private Match", CREATE_GAME_ACTION; )
 	IW3_CREATE_BUTTON( 2.5, "Create a Class", open "cac_popup" )
 	IW3_CREATE_BUTTON( 3.5, "Callsign & Killstreaks", open "menu_online_barracks" )
 	IW3_CREATE_BUTTON( 4.5, "Barracks", open "menu_online_barracks" )
@@ -45,13 +64,13 @@ menuDef
 {
 	ADD_STYLED_MENU( iw4 )
 
-	IW4_BG( "" )
+	IW4_BG( "", true )
 	CREATE_SHADER( 304 270 288 72 0 0, "logo_cod2", 1 1 1 1 )
 	IW4_CREATE_SEPARATOR( 2 )
 	IW4_CREATE_SEPARATOR( 5 )
 	IW4_CREATE_SEPARATOR( 8 )
 	IW4_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
-	IW4_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
+	IW4_CREATE_BUTTON( 1, "PRIVATE MATCH", CREATE_GAME_ACTION; )
 	IW4_CREATE_BUTTON( 2, "CREATE A CLASS", open "cac_popup" )
 	IW4_CREATE_BUTTON( 3, "CALLSIGN & KILLSTREAKS", open "menu_online_barracks" )
 	IW4_CREATE_BUTTON( 4, "BARRACKS", open "menu_online_barracks" )
@@ -66,14 +85,14 @@ menuDef
 {
 	ADD_STYLED_MENU( iw5 )
 
-	IW5_BG( "@MENU_MULTIPLAYER_CAPS" )
+	IW5_BG( "@MENU_MULTIPLAYER_CAPS", false )
 	IW5_CREATE_SEPARATOR( 0 )
 	IW5_CREATE_SEPARATOR( 2 )
 	IW5_CREATE_SEPARATOR( 5 )
 	IW5_CREATE_SEPARATOR( 8 )
 
 	IW5_CREATE_BUTTON( 0, "SERVER BROWSER", open "pc_join_unranked" )
-	IW5_CREATE_BUTTON( 1, "PRIVATE MATCH", open "createserver" )
+	IW5_CREATE_BUTTON( 1, "PRIVATE MATCH", CREATE_GAME_ACTION; )
 	IW5_CREATE_BUTTON( 2, "CREATE A CLASS", open "cac_popup" )
 	IW5_CREATE_BUTTON( 3, "CALLSIGN & KILLSTREAKS", open "menu_online_barracks" )
 	IW5_CREATE_BUTTON( 4, "BARRACKS", open "menu_online_barracks" )

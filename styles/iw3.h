@@ -5,7 +5,7 @@
 #define IW3_CHOICE_X_SPACING					( IW3_CHOICE_X_SIZE + 5 )
 #define IW3_CHOICE_Y_COUNT						20
 #define IW3_CHOICE_Y_SPACING					( IW3_CHOICE_Y_SIZE + 2 )
-#define IW3_CHOICE_HORIZONTAL_ALIGN 			HORIZONTAL_ALIGN_LEFT
+#define IW3_CHOICE_HORIZONTAL_ALIGN 			        HORIZONTAL_ALIGN_LEFT
 #define IW3_CHOICE_VERTICAL_ALIGN 				VERTICAL_ALIGN_CENTER
 #define IW3_CHOICE_ROW( idx )					( ( idx - 0 ) % IW3_CHOICE_Y_COUNT )
 #define IW3_CHOICE_COL( idx )					( ( idx - 0 - ( ( idx - 0 ) % IW3_CHOICE_Y_COUNT ) ) / IW3_CHOICE_Y_COUNT )
@@ -79,6 +79,12 @@
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front", 1 1 1 1, IS_IW3 ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front2", 1 1 1 1, IS_IW3 )
 
+#define IW3_BG_BLUR \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_back_blur", 1 1 1 1, IS_IW3 ) \
+        CREATE_SHADER_EX( -107 0 1708 480 4 4, "uim_iw3_bg_fogscroll_blur", 1 1 1 1, IS_IW3, exp rect X ( ( -107 ) - ( ( float( milliseconds() % FOG_SCROLL_TIME ) / FOG_SCROLL_TIME ) * ( 854 ) ) ) ) \
+        CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw3_bg_front_blur", 1 1 1 1, IS_IW3 )
+
+
 #define IW3_BG_NAV( string ) \
         CREATE_SHADER_VIS( -120 -32 378 64, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
         CREATE_SHADER_VIS( 258 -32 16 -64, "button_highlight_end", 0.9 0.9 0.95 0.175, IS_IW3 ) \
@@ -87,7 +93,7 @@
         CREATE_SHADER_VIS( 40 448 -16 64, "button_highlight_end", 0.9 0.9 0.95 0.175, IS_IW3 ) \
         CREATE_SHADER_VIS( -120 464 160 32, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
         CREATE_SHADER_VIS( 600 464 160 32, "white", 0.9 0.9 0.95 0.175, IS_IW3 ) \
-        CREATE_TEXT( 12 3.5 0 0, string, 1 0.8 0.4 1, IS_IW3, textfont		UI_FONT_NORMAL \
+        CREATE_TEXT( 12 3.5 0 0, string, 1 0.8 0.4 1, IS_IW3, textfont		UI_FONT_DEFAULT \
 			                                                textscale		TEXTSIZE_TITLE \
 			                                                textstyle		ITEM_TEXTSTYLE_SHADOWED \
 			                                                textalign		ITEM_ALIGN_TOP_LEFT ) \
@@ -98,7 +104,7 @@
 	    	style			WINDOW_STYLE_FILLED \
 	    	textstyle		ITEM_TEXTSTYLE_SHADOWED \
 	    	rect			-250 10 40 20 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM \
-	    	textfont		UI_FONT_NORMAL \
+	    	textfont		UI_FONT_DEFAULT \
 	    	textalign		ITEM_ALIGN_LEFT \
 	    	textscale		TEXTSIZE_SMALL \
 	    	textaligny		18 \
@@ -125,7 +131,7 @@
 #define IW3_POPUP( title, desc ) \
         CREATE_SHADER_VIS( -1000 -1000 2000 2000 2 2, "white", 0 0 0 0.5, IS_IW3 ) \
         CREATE_SHADER_VIS( 0 0 IW3_POPUP_WIDTH IW3_POPUP_HEIGHT 0 0, "white", 0.2 0.2 0.22 1; border 1; bordersize 2; bordercolor 0.29 0.29 0.3 1, IS_IW3 ) \
-        CREATE_TEXT( 0 0 IW3_POPUP_WIDTH IW3_POPUP_HEIGHT 0 0, title, IW3_TEXTCOLOUR, IS_IW3,   textfont		UI_FONT_NORMAL \
+        CREATE_TEXT( 0 0 IW3_POPUP_WIDTH IW3_POPUP_HEIGHT 0 0, title, IW3_TEXTCOLOUR, IS_IW3,   textfont		UI_FONT_DEFAULT \
 			                                                                                    textscale		0.4583 \
 			                                                                                    textstyle		ITEM_TEXTSTYLE_SHADOWEDMORE \
 			                                                                                    textalign		ITEM_ALIGN_TOP_CENTER \

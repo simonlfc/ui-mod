@@ -3,4 +3,5 @@
 	loadmenu { "ui_mp/main_text.menu" }
 	loadmenu { "ui_mp/mods_menu.menu" }
 	loadmenu { "ui_mp/quit_popmenu.menu" }
+	loadmenu { "ui_mp/createserver.menu" }
 }

@@ -58,7 +58,7 @@ menuDef
 {
 	ADD_STYLED_MENU( iw4 )
 
-	IW4_BG( "@MENU_MODS" )
+	IW4_BG( "@MENU_MODS", false )
 	STYLE_WIDGET
 }
 
@@ -66,6 +66,6 @@ menuDef
 {
 	ADD_STYLED_MENU( iw5 )
 
-	IW5_BG( "@MENU_MODS" )
+	IW5_BG( "@MENU_MODS", true )
 	STYLE_WIDGET
 }

@@ -66,11 +66,11 @@
             } \
 		}
 
-#define IW4_BG( string ) \
+#define IW4_BG( string, show_front ) \
         CREATE_SHADER_VIS( 0 0 640 480 4 4, "uim_iw4_bg", 1 1 1 1, IS_IW4 ) \
         CREATE_SHADER_EX( 0 0 1708 480 0 0, "uim_iw4_smoke", 1 1 1 0.5, IS_IW4, exp rect X ( ( -107 ) - ( ( float( milliseconds() % 60000 ) / 60000 ) * ( 854 ) ) ) ) \
         CREATE_SHADER_EX( 0 0 -1708 -480 0 0, "uim_iw4_smoke", 1 1 1 0.5, IS_IW4, exp rect X ( ( -107 + 854 ) + ( ( float( milliseconds() % 50000 ) / 50000 ) * ( 854 ) ) ) ) \
-        CREATE_SHADER_VIS( -427 -240 854 480 2 2, "uim_iw4_bg_front", 1 1 1 1, IS_IW4 ) \
+        CREATE_SHADER_VIS( -427 -240 854 480 2 2, "uim_iw4_bg_front", 1 1 1 1, IS_IW4 && show_front ) \
         CREATE_SHADER_EX( 0 0 640 480 4 4, "uim_iw4_glow", 1 1 1 0, IS_IW4, exp forecolor a ( ( ( sin( milliseconds( ) / 1500 ) + 1 ) * 0.25 ) + 0.25 ) ) \
         CREATE_SHADER_EX( 0 0 640 480 4 4, "uim_iw4_glow", 1 1 1 0, IS_IW4, exp forecolor a ( ( ( sin( milliseconds( ) / 480 ) + 1 ) * 0.25 ) + 0.25 ) ) \
         CREATE_SHADER_VIS( -64 0 280 480 1 0, "gradient_fadein_fadebottom", 1 1 1 0.1, IS_IW4 ) \

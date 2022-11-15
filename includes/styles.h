@@ -10,6 +10,9 @@
 #define iw4 	MENU_NAME"_iw4"
 #define iw5 	MENU_NAME"_iw5"
 
+#define false	0
+#define true 	1
+
 #define DEBUG 	1
 
 #define STYLE_OPEN \
@@ -25,7 +28,7 @@
 		{ \
 			if ( dvarString( "ui_menustyle" ) == "" ) \
 			{ \
-				setDvar "ui_menustyle" "iw3"; \
+				setDvar ui_menustyle "iw3"; \
 			} \
 			STYLE_OPEN; \
 		}
