@@ -34,7 +34,7 @@
         textstyle           ITEM_TEXTSTYLE_NORMAL \
         textalign           IW4_TEXTALIGN \
         textalignx          IW4_CHOICE_X_OFFSET \
-        textaligny          -0.5 \
+        textaligny          -1 \
         forecolor           1 1 1 1
 
 #define IW4_CREATE_SEPARATOR( idx ) \
